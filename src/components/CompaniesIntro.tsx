@@ -9,13 +9,15 @@ export function CompaniesIntro() {
           </div>
           <h2 className="text-h2 xs:max-lg:text-pretty mx-auto w-full max-w-[840px]">
             <span>
-              You know AI can transform your business. But where do you start?
+              Most businesses know they need AI. Almost none know how to
+              actually use it.
             </span>
           </h2>
-          <p className="text-18 xs:max-lg:text-pretty mdx:mx-auto mx-auto w-full max-w-[640px] text-black/70">
-            You can out-execute your competitors and grow without growing
-            headcount, if you deploy AI effectively. The problem? You don't
-            know where to start.
+          <p className="text-18 xs:max-lg:text-pretty mdx:mx-auto mx-auto w-full max-w-[680px] text-black/70">
+            The gap is not knowledge. It is execution. Consultants write
+            strategies that gather dust. Recruitment firms find people who do
+            not fit. Internal teams try to self-serve and stall. Seka closes
+            that gap.
           </p>
         </div>
       </div>

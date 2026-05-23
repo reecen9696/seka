@@ -106,14 +106,15 @@ export function BuildersSection() {
         <div className="container mdx:mx-auto mdx:justify-center mdx:text-center flex w-full flex-col justify-center gap-y-4 text-center">
           <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">
             <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-            <h6 className="text-eyebrow">Our engineers</h6>
+            <h6 className="text-eyebrow">Our team</h6>
           </div>
           <h2 className="text-h2 xs:max-lg:text-balance">
-            Senior engineers, ready to deploy
+            The people behind the work
           </h2>
-          <p className="text-18 xs:max-lg:text-balance mdx:mx-auto mx-auto w-full max-w-[480px] text-white/70">
-            Pre-vetted AI engineers integrated with your team in under two
-            weeks, building automations that drive real, measurable impact.
+          <p className="text-18 xs:max-lg:text-balance mdx:mx-auto mx-auto w-full max-w-[500px] text-white/70">
+            We deliberately stay lean. No account managers, no project
+            coordinators, no layers. When you work with Seka, you work with
+            the people who built it.
           </p>
         </div>
 

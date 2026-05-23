@@ -106,7 +106,7 @@ function DemoForm() {
     <div className="mdx:max-w-[min(50%,452px)] mdx:px-10 xl:pl-[100px] w-full min-w-0">
       <div className="mdx:max-w-[452px]">
         <h1 className="text-h4 max-sm:!text-[2rem]">
-          Book your consultation
+          Let us talk.
         </h1>
         <div className="bg-grey-100 mt-8 flex items-center gap-x-2 rounded-full p-0.5 ring-1 ring-inset ring-black/10">
           {(["companies", "agencies"] as const).map((a) => {

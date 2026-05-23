@@ -18,11 +18,11 @@ export function CtaBanner() {
 
         <div className="relative z-10 pt-12 text-center md:pt-24">
           <h3 className="text-h2 mx-auto max-w-[836px] text-balance text-black">
-            Ready to make your company AI-first?
+            Ready to move past the conversation?
           </h3>
-          <p className="text-18 mx-auto mt-4 text-black max-md:text-balance md:max-w-[575px]">
-            Book a free consultation. No commitment required. We'll discuss
-            your specific challenges and whether Seka is the right fit.
+          <p className="text-18 mx-auto mt-4 text-black max-md:text-balance md:max-w-[600px]">
+            Most AI initiatives stall because strategy and execution live in
+            different rooms. At Seka, they are the same room.
           </p>
           <div className="mt-7 flex items-center justify-center gap-x-2.5 md:!gap-x-3">
             <Link to="/get-a-demo" className="inline-flex">

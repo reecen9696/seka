@@ -19,13 +19,13 @@ export function BuildersBento() {
             <div className="grid grid-cols-1 gap-5 rounded-[10px] bg-white/5 md:grid-cols-2 max-md:p-2.5">
               <div className="flex max-w-[430px] flex-col justify-end p-3.5 md:px-9 md:py-10">
                 <h3 className="text-h5 text-white">
-                  AI execution, not another strategy deck
+                  Strategy without execution is just cost.
                 </h3>
                 <p className="text-16 mt-3 text-white/80">
-                  Our engineers don't write 200-page strategy decks. They
-                  build. They surface bottlenecks, ship automations, and
-                  continuously improve how your operations run, so you see
-                  practical impact in weeks, not quarters.
+                  We have seen too many AI roadmaps sit in slide decks. Every
+                  engagement we take ends in working software, a placed team
+                  member, or a business that operates differently than before
+                  we arrived.
                 </p>
               </div>
               <div className="aspect-[608/447] relative overflow-hidden rounded-[10px]">
@@ -48,12 +48,12 @@ export function BuildersBento() {
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
             <h3 className="text-h5 text-white max-md:text-pretty">
-              Say goodbye to bloated consulting fees
+              The talent gap is real, and it is solvable.
             </h3>
             <div className="aspect-550/440">
               <img
                 src={SVG_BD}
-                alt="No consulting overhead"
+                alt="Talent across South-East Asia"
                 width={550}
                 height={440}
                 loading="lazy"
@@ -61,9 +61,9 @@ export function BuildersBento() {
               />
             </div>
             <p className="text-16 max-w-[476px] text-white/80 md:pb-2">
-              No $250K engagements. No months of PowerPoints with nothing
-              shipped. Seka engineers are operators embedded with your team,
-              billing for output, not slides.
+              Great AI and data people are scarce in Australia. We source
+              from deep talent pools across Sri Lanka, Malaysia, and Indonesia
+              and hold every person to the same standard we hold ourselves.
             </p>
           </div>
 
@@ -71,12 +71,12 @@ export function BuildersBento() {
           <div className="flex flex-col gap-y-5">
             <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-[10px] bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
-                Cutting-edge AI, used in production
+                Small teams move faster than big ones.
               </h3>
               <div className="aspect-614/164 order-last">
                 <img
                   src={IMG_TOOLS}
-                  alt="Production AI tooling"
+                  alt="A lean delivery team"
                   width={1228}
                   height={328}
                   loading="lazy"
@@ -84,20 +84,20 @@ export function BuildersBento() {
                 />
               </div>
               <p className="text-16 max-w-[540px] px-6 pb-6 text-white/80 md:px-8">
-                Our engineers move fast with the latest LLM orchestration and
-                agentic workflows, built into secure systems that scale in
-                production, not demos that never ship.
+                We deliberately stay lean. No account managers, no project
+                coordinators, no layers. When you work with Seka, you work
+                with the people who built it.
               </p>
             </div>
 
             <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-[10px] bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
-                Senior oversight on every engagement
+                AI works best when it fits the business.
               </h3>
               <div className="aspect-614/164 order-last">
                 <img
                   src={IMG_FOLLOWUPS}
-                  alt="Senior oversight"
+                  alt="Built to fit"
                   width={1228}
                   height={328}
                   loading="lazy"
@@ -105,9 +105,9 @@ export function BuildersBento() {
                 />
               </div>
               <p className="text-16 max-w-[540px] px-6 pb-6 text-white/80 md:px-8">
-                Every engineer is backed by Seka consultants with deep AI
-                expertise. We sense-check plans before execution and manage
-                the engagement end-to-end. Staffing without the risk.
+                Off-the-shelf tools solve off-the-shelf problems. Most
+                businesses have specific ones. We scope, build, and ship to
+                the shape of your operations, not the other way around.
               </p>
             </div>
           </div>

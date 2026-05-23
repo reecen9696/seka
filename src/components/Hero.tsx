@@ -48,16 +48,17 @@ export function Hero() {
               className="font-heading text-[64px] leading-[100%] -tracking-[1.2px] text-white max-md:text-[48px]"
               style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.03)" }}
             >
-              Deploy an AI engineer
+              AI transformation.
               <br />
-              into your business
+              Strategy, people, execution.
             </h1>
             <p
-              className="max-w-[440px] text-[18px] leading-[27px] text-white/80 max-md:text-[16px]"
+              className="max-w-[480px] text-[18px] leading-[27px] text-white/80 max-md:text-[16px]"
               style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.03)" }}
             >
-              Expert AI engineers embedded into your team to deliver immediate
-              operational impact.
+              We help businesses of every size move from AI curiosity to
+              operational reality. We build the strategy, assemble the team,
+              and deliver the outcomes.
             </p>
           </div>
 

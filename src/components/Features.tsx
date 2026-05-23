@@ -29,12 +29,13 @@ function QuoteCard() {
       />
       <div className="pointer-events-none relative z-10">
         <div className="text-18 !font-heading indent-[-7px] !leading-[1.35] text-black">
-          “Seka dropped an engineer onto our team in under two weeks. Within a
-          month they had automated the busywork that was eating our days.”
+          “Most consultants leave you with a strategy. Seka left us with a
+          roadmap our team could actually execute. By month two we were
+          already shipping the second workflow.”
         </div>
         <div className="mt-3.5 flex items-center gap-x-2 md:mt-4">
-          <span className="text-14 font-medium text-black">Operations lead</span>
-          <span className="text-14">Logistics &amp; export company</span>
+          <span className="text-14 font-medium text-black">Operations director</span>
+          <span className="text-14">Mid-market services firm</span>
         </div>
       </div>
     </div>
@@ -66,14 +67,14 @@ function FullImage({ src, alt }: { src: string; alt: string }) {
 
 const CARDS: Card[] = [
   {
-    title: "Engineers integrated with your team, fast",
-    body: "We deploy AI-ready software engineers into your company within two weeks. They don't just advise, they actually build, ship, and iterate alongside your team.",
-    stat: "2 wk",
-    statLabel: "Avg. time to deploy",
+    title: "Strategy and roadmap, not another slide deck",
+    body: "We audit your operations, identify where AI creates genuine leverage, and deliver a prioritised roadmap your team can actually execute against. Plan, not PowerPoint.",
+    stat: "2-4 wk",
+    statLabel: "Advisory sprint",
     visual: (
       <div className="flex h-full w-full gap-x-4 lg:gap-x-6">
         <div className="aspect-352/460 h-full flex-1 overflow-hidden rounded-[10px]">
-          <RivePlaceholder label="Engineer deployment animation" />
+          <RivePlaceholder label="Strategy roadmap animation" />
         </div>
         <div className="flex-1">
           <QuoteCard />
@@ -82,43 +83,43 @@ const CARDS: Card[] = [
     ),
     mobileVisual: (
       <div className="aspect-345/451 w-full overflow-hidden rounded-[10px]">
-        <RivePlaceholder label="Engineer deployment animation" />
+        <RivePlaceholder label="Strategy roadmap animation" />
       </div>
     ),
   },
   {
-    title: "Pre-vetted senior engineers, ready to build",
-    body: "We source, screen, and train senior engineers through our 6-stage process before they ever join your team. You get elite AI talent without the hiring risk.",
-    stat: "6",
-    statLabel: "Stage vetting process",
-    visual: <FullImage src={IMG_AI} alt="Senior engineers" />,
+    title: "Workflow automation, built into your stack",
+    body: "We identify the workflows costing your team the most time, design the automation logic, and implement it across your existing systems without disrupting operations.",
+    stat: "100s",
+    statLabel: "Hours reclaimed",
+    visual: <FullImage src={IMG_AI} alt="Workflow automation" />,
     mobileVisual: (
       <div className="aspect-345/220 w-full">
-        <FullImage src={IMG_AI} alt="Senior engineers" />
+        <FullImage src={IMG_AI} alt="Workflow automation" />
       </div>
     ),
   },
   {
-    title: "Automations that compound month over month",
-    body: "Your engineer learns your business deeply, builds practical AI automations, and continuously improves how your operations run, so the value compounds over time.",
-    stat: "160+",
-    statLabel: "Hours saved monthly",
-    visual: <RivePlaceholder label="Automation flow animation" />,
+    title: "MVP and product build, end to end",
+    body: "When the answer is a custom tool, not an off-the-shelf product, we scope, build, and deliver it. From brief to working software, with AI and data integration baked in.",
+    stat: "Brief",
+    statLabel: "To working product",
+    visual: <RivePlaceholder label="Product build animation" />,
     mobileVisual: (
       <div className="aspect-345/220 w-full">
-        <RivePlaceholder label="Automation flow animation" />
+        <RivePlaceholder label="Product build animation" />
       </div>
     ),
   },
   {
-    title: "Managed service. Cancel anytime.",
-    body: "We manage the engagement end-to-end with senior consultant oversight on every project. Need more resources? We scale up. Need to pause? Cancel after your trial month.",
-    stat: "30 day",
-    statLabel: "Trial commitment",
-    visual: <FullImage src={IMG_SUPPORT} alt="Managed service" />,
+    title: "Offshore talent, embedded and accountable",
+    body: "Vetted AI, data, and engineering specialists from Sri Lanka, Malaysia, and Indonesia, placed directly into your team. One specialist or an entire function. We handle sourcing, vetting, and management.",
+    stat: "3",
+    statLabel: "Offshore talent regions",
+    visual: <FullImage src={IMG_SUPPORT} alt="Offshore talent" />,
     mobileVisual: (
       <div className="aspect-345/220 w-full">
-        <FullImage src={IMG_SUPPORT} alt="Managed service" />
+        <FullImage src={IMG_SUPPORT} alt="Offshore talent" />
       </div>
     ),
   },
