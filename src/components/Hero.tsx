@@ -77,9 +77,9 @@ export function Hero() {
                 />
                 <button
                   type="submit"
-                  className="h-12 w-[121px] shrink-0 cursor-pointer rounded-[32px] bg-[#1A1A1A] text-[16px] leading-[15px] text-white shadow-[inset_0_0_0_1px_#1A1A1A] transition-colors duration-200 hover:bg-[#1A1A1A]/90"
+                  className="h-12 shrink-0 cursor-pointer rounded-[32px] bg-[#1A1A1A] px-7 text-[16px] leading-[15px] text-white shadow-[inset_0_0_0_1px_#1A1A1A] transition-colors duration-200 hover:bg-[#1A1A1A]/90"
                 >
-                  Book a consultation
+                  Book
                 </button>
               </form>
 
@@ -101,7 +101,7 @@ export function Hero() {
                   type="submit"
                   className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[32px] bg-[#1A1A1A] text-[16px] leading-[15px] text-white shadow-[inset_0_0_0_1px_#1A1A1A] transition-colors duration-200 hover:bg-[#1A1A1A]/90"
                 >
-                  Book a consultation
+                  Book
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M5 12H19M19 12L13 6M19 12L13 18"
