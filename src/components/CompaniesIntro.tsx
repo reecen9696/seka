@@ -5,7 +5,7 @@ export function CompaniesIntro() {
         <div className="container mdx:mx-auto mdx:justify-center mdx:text-center flex w-full flex-col justify-center gap-y-4 text-center">
           <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">
             <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-            <h6 className="text-eyebrow">The Problem</h6>
+            <h6 className="text-eyebrow">The problem</h6>
           </div>
           <h2 className="text-h2 xs:max-lg:text-pretty mx-auto w-full max-w-[840px]">
             <span>

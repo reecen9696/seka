@@ -24,7 +24,7 @@ const TEAM: Member[] = [
 const STEP_MS = 4500;
 const CARD_WIDTH = 460;
 const CARD_HEIGHT = 530;
-const SIDE_HEIGHT = 430;
+const SIDE_HEIGHT = 395;
 const SIDE_SCALE = SIDE_HEIGHT / CARD_HEIGHT;
 const SIDE_WIDTH = CARD_WIDTH * SIDE_SCALE;
 const GAP_CENTER_SIDE = 50;
@@ -32,12 +32,13 @@ const GAP_SIDE_OUTER = 42;
 const OFFSET_SIDE = CARD_WIDTH / 2 + GAP_CENTER_SIDE + SIDE_WIDTH / 2;
 const OFFSET_OUTER = OFFSET_SIDE + SIDE_WIDTH + GAP_SIDE_OUTER;
 const CONTAINER_HEIGHT = 560;
+const SIDE_OPACITY = 0.35;
 
 function styleFor(delta: number) {
   const abs = Math.abs(delta);
   if (abs === 0) return { scale: 1, opacity: 1, z: 30 };
-  if (abs === 1) return { scale: SIDE_SCALE, opacity: 0.6, z: 20 };
-  if (abs === 2) return { scale: SIDE_SCALE, opacity: 0.2, z: 10 };
+  if (abs === 1) return { scale: SIDE_SCALE, opacity: SIDE_OPACITY, z: 20 };
+  if (abs === 2) return { scale: SIDE_SCALE, opacity: SIDE_OPACITY, z: 10 };
   return { scale: SIDE_SCALE, opacity: 0, z: 0 };
 }
 
@@ -105,7 +106,7 @@ export function BuildersSection() {
         <div className="container mdx:mx-auto mdx:justify-center mdx:text-center flex w-full flex-col justify-center gap-y-4 text-center">
           <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">
             <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-            <h6 className="text-eyebrow">Our Engineers</h6>
+            <h6 className="text-eyebrow">Our engineers</h6>
           </div>
           <h2 className="text-h2 xs:max-lg:text-balance">
             Senior engineers, ready to deploy

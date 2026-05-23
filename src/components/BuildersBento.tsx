@@ -16,7 +16,7 @@ export function BuildersBento() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Card 1 - full-width: AI to supercharge placements */}
           <div className="md:col-span-2">
-            <div className="flex justify-between gap-6 rounded-[10px] bg-white/5 max-md:flex-col max-md:p-2.5">
+            <div className="grid grid-cols-1 gap-5 rounded-[10px] bg-white/5 md:grid-cols-2 max-md:p-2.5">
               <div className="flex max-w-[430px] flex-col justify-end p-3.5 md:px-9 md:py-10">
                 <h3 className="text-h5 text-white">
                   AI execution, not another strategy deck
@@ -28,15 +28,13 @@ export function BuildersBento() {
                   practical impact in weeks, not quarters.
                 </p>
               </div>
-              <div className="aspect-608/447 relative flex w-full shrink-0 items-center justify-start md:max-w-[60%] lg:max-w-[608px]">
-                <div className="aspect-598/427 relative isolate w-full max-w-[598px] overflow-hidden rounded-lg">
-                  <img
-                    src={IMG_AI}
-                    alt="AI placements"
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
+              <div className="aspect-[608/447] relative overflow-hidden rounded-[10px]">
+                <img
+                  src={IMG_AI}
+                  alt="AI placements"
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>
