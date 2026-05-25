@@ -55,15 +55,27 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="flex w-full flex-col items-start gap-3 max-md:items-center">
-            <Link to="/get-a-demo" className="inline-flex max-md:w-full">
-              <span className="group relative inline-flex h-12 w-auto cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-7 text-[16px] font-medium leading-none text-[#1A1A1A] shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/90 max-md:w-full">
+          <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <Link to="/get-a-demo" className="inline-flex max-sm:w-full">
+              <span className="group relative inline-flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-7 text-[16px] font-medium leading-none text-[#1A1A1A] shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/90 sm:w-auto">
                 <span className="relative">
                   <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
                     Start a conversation
                   </span>
                   <span className="absolute inset-0 flex translate-y-[200%] items-center justify-center transition-transform duration-300 group-hover:translate-y-0">
                     Start a conversation
+                  </span>
+                </span>
+              </span>
+            </Link>
+            <Link to="/what-we-do" className="inline-flex max-sm:w-full">
+              <span className="group relative inline-flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white/10 px-7 text-[16px] font-medium leading-none text-white ring-1 ring-inset ring-white/30 backdrop-blur-xs transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/20 sm:w-auto">
+                <span className="relative">
+                  <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
+                    See how we work
+                  </span>
+                  <span className="absolute inset-0 flex translate-y-[200%] items-center justify-center transition-transform duration-300 group-hover:translate-y-0">
+                    See how we work
                   </span>
                 </span>
               </span>

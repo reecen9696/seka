@@ -86,6 +86,23 @@ export function BuildersSection() {
   const [active, setActive] = useState(0);
   const prevActive = useRef(0);
 
+  // On narrow screens the fixed-width cards overflow the viewport, so we scale
+  // the whole carousel down to fit with horizontal breathing room at the edges.
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const measure = () => {
+      const w = wrapRef.current?.clientWidth ?? 0;
+      if (!w) return;
+      const EDGE_PADDING = 48; // 24px each side
+      setScale(Math.min(1, (w - EDGE_PADDING) / CARD_WIDTH));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
   useEffect(() => {
     const id = setInterval(() => {
       setActive((prev) => (prev + 1) % TEAM.length);
@@ -127,38 +144,48 @@ export function BuildersSection() {
         </div>
 
         <div
+          ref={wrapRef}
           className="relative mx-auto w-full max-w-[1650px] overflow-hidden"
-          style={{ height: CONTAINER_HEIGHT }}
+          style={{ height: CONTAINER_HEIGHT * scale }}
         >
-          {TEAM.map((member, i) => {
-            const delta = wrappedDelta(i, active);
-            const prevDelta = wrappedDelta(i, previous);
-            // A wrapping card jumps between far edges (e.g. -2 → +3). Skip the
-            // transition so it snaps to its new slot instead of gliding across.
-            const wrapping = Math.abs(delta - prevDelta) > 1;
-            const { scale, opacity, z } = styleFor(delta);
-            return (
-              <div
-                key={i}
-                className={`absolute top-1/2 left-1/2 ${
-                  wrapping
-                    ? ""
-                    : "transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.36,1)]"
-                }`}
-                style={{
-                  width: CARD_WIDTH,
-                  height: CARD_HEIGHT,
-                  marginLeft: -CARD_WIDTH / 2,
-                  marginTop: -CARD_HEIGHT / 2,
-                  transform: `translateX(${translateFor(delta)}px) scale(${scale})`,
-                  opacity,
-                  zIndex: z,
-                }}
-              >
-                <PortraitCard member={member} active={delta === 0} />
-              </div>
-            );
-          })}
+          <div
+            className="absolute inset-x-0 top-0"
+            style={{
+              height: CONTAINER_HEIGHT,
+              transform: `scale(${scale})`,
+              transformOrigin: "center top",
+            }}
+          >
+            {TEAM.map((member, i) => {
+              const delta = wrappedDelta(i, active);
+              const prevDelta = wrappedDelta(i, previous);
+              // A wrapping card jumps between far edges (e.g. -2 → +3). Skip the
+              // transition so it snaps to its new slot instead of gliding across.
+              const wrapping = Math.abs(delta - prevDelta) > 1;
+              const { scale: cardScale, opacity, z } = styleFor(delta);
+              return (
+                <div
+                  key={i}
+                  className={`absolute top-1/2 left-1/2 ${
+                    wrapping
+                      ? ""
+                      : "transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+                  }`}
+                  style={{
+                    width: CARD_WIDTH,
+                    height: CARD_HEIGHT,
+                    marginLeft: -CARD_WIDTH / 2,
+                    marginTop: -CARD_HEIGHT / 2,
+                    transform: `translateX(${translateFor(delta)}px) scale(${cardScale})`,
+                    opacity,
+                    zIndex: z,
+                  }}
+                >
+                  <PortraitCard member={member} active={delta === 0} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -1,32 +1,30 @@
+import { Link } from "react-router-dom";
 import logoBlack from "../assets/logoblack.svg";
 
 const NAV_COLUMNS: { heading: string; links: { label: string; href: string }[] }[] = [
   {
-    heading: "Product",
+    heading: "Explore",
     links: [
-      { label: "Transform your business", href: "/transform" },
-      { label: "Why us", href: "/why-us" },
-    ],
-  },
-  {
-    heading: "Use cases",
-    links: [
-      { label: "Case studies", href: "/case-studies" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "What we do", href: "/what-we-do" },
+      { label: "Who we are", href: "/who-we-are" },
+      { label: "Work", href: "/work" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Book a consultation", href: "/get-a-demo" },
+      { label: "Home", href: "/" },
+      { label: "Start a conversation", href: "/get-a-demo" },
     ],
+  },
+  {
+    heading: "Contact",
+    links: [{ label: "hello@seka.com.au", href: "mailto:hello@seka.com.au" }],
   },
 ];
 
 function Logo() {
-  return <img src={logoBlack} alt="Paraform" className="h-6 w-auto" />;
+  return <img src={logoBlack} alt="Seka" className="h-6 w-auto" />;
 }
 
 function ColumnGroup({
@@ -40,16 +38,24 @@ function ColumnGroup({
     <div className="2xs:min-w-[159px] max-2xl:flex-1 2xl:min-w-[226px] flex flex-col gap-y-2.5">
       <p className="text-14 text-black/65">{heading}</p>
       <ul className="flex flex-col gap-y-2.5">
-        {links.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className="text-16 text-black opacity-100 transition-opacity duration-200 hover:opacity-65"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {links.map((link) => {
+          const external = /^(https?:|mailto:|tel:)/.test(link.href);
+          const className =
+            "text-16 text-black opacity-100 transition-opacity duration-200 hover:opacity-65";
+          return (
+            <li key={link.href}>
+              {external ? (
+                <a href={link.href} className={className}>
+                  {link.label}
+                </a>
+              ) : (
+                <Link to={link.href} className={className}>
+                  {link.label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -60,9 +66,14 @@ export function Footer() {
     <footer className="bg-[#F6F8F6] pt-20 pb-16 text-black md:pt-28">
       <div className="container space-y-20 md:space-y-[144px]">
         <div className="flex justify-between gap-x-10 gap-y-8 max-lg:flex-col">
-          <a href="/" className="inline-flex shrink-0">
-            <Logo />
-          </a>
+          <div className="flex flex-col gap-y-4">
+            <Link to="/" className="inline-flex shrink-0">
+              <Logo />
+            </Link>
+            <p className="text-14 max-w-[240px] text-black/55">
+              Melbourne, Australia · Available nationwide and internationally
+            </p>
+          </div>
 
           <div className="grid flex-1 grid-cols-2 gap-x-5 gap-y-6 sm:gap-y-14 md:grid-cols-3 lg:max-w-[717px]">
             <div className="flex flex-col gap-y-6 sm:gap-y-14 md:contents">
