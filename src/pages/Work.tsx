@@ -1,9 +1,9 @@
 import { CtaLink } from "../components/CtaLink";
+import imgPropia from "../assets/work/propia.png";
+import imgBega from "../assets/work/bega.png";
 
-const IMG_PROPIA =
-  "https://cdn.sanity.io/images/e5ozko3p/production/edd3fd2b4be5b92203b7db12d02de2b00ba1f0b3-2160x1380.jpg?auto=format";
-const IMG_AGRI =
-  "https://cdn.sanity.io/images/e5ozko3p/production/f033800d2fbf0fb0ab041f436527137b0ed0ffa6-2160x1380.jpg?auto=format";
+const IMG_PROPIA = imgPropia;
+const IMG_AGRI = imgBega;
 
 type Project = {
   tag: string;
@@ -66,7 +66,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
           src={project.img}
           alt={project.title}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-top"
         />
       </div>
     </div>
