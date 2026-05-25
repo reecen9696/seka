@@ -36,37 +36,6 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const HEADER_STATS = [
-  {
-    tag: "Offshore delivery",
-    number: "3",
-    label: "Talent hubs across Sri Lanka, Malaysia, and Indonesia",
-  },
-  {
-    tag: "Advisory sprint",
-    number: "2–4 wk",
-    label: "From first conversation to a prioritised, costed roadmap",
-  },
-];
-
-const STATS = [
-  { number: "2 wk", label: "Avg. time to first deployment" },
-  { number: "160+", label: "Hours reclaimed / month" },
-  { number: "98%", label: "Client satisfaction" },
-  { number: "5", label: "Services across strategy, build, and talent" },
-];
-
-function BigNumber({ children }: { children: string }) {
-  return (
-    <div
-      className="font-heading font-light leading-[1.1] tracking-[-0.1125rem]"
-      style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
-    >
-      {children}
-    </div>
-  );
-}
-
 function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
   return (
     <div className="grid grid-cols-1 gap-5 overflow-hidden rounded-[10px] bg-[#1A1A1A] text-white md:grid-cols-2 max-md:p-2.5">
@@ -109,7 +78,7 @@ export function Work() {
     <main>
       {/* Intro */}
       <section className="overflow-clip bg-[#F6F8F6] pt-[100px] pb-12 text-black md:pt-[140px] md:pb-20">
-        <div className="container space-y-14">
+        <div className="container">
           <div className="mdx:mx-auto flex w-full flex-col items-center justify-center gap-y-6 text-center">
             <h1 className="text-h1 xs:max-lg:text-balance mx-auto w-full max-w-[823px]">
               Seka is early. The people behind it are not.
@@ -121,23 +90,6 @@ export function Work() {
             <div className="flex items-center justify-center gap-x-2.5 pt-1 md:gap-x-3">
               <CtaLink to="/get-a-demo" label="Start a conversation" />
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {HEADER_STATS.map((stat) => (
-              <div
-                key={stat.tag}
-                className="mdx:aspect-[612/652] mdx:gap-y-20 max-mdx:min-h-[300px] relative flex flex-col justify-between gap-y-8 overflow-hidden rounded-[10px] bg-[#1A1A1A] p-6 text-white md:p-8"
-              >
-                <p className="text-14-medium text-white/50">{stat.tag}</p>
-                <div>
-                  <BigNumber>{stat.number}</BigNumber>
-                  <p className="text-16 mt-2 max-w-[280px] text-white/70">
-                    {stat.label}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -156,33 +108,8 @@ export function Work() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="overflow-clip bg-black py-16 text-white md:py-36">
-        <div className="container space-y-12 md:space-y-20">
-          <div className="mdx:mx-auto flex w-full flex-col items-center justify-center gap-y-5 text-center">
-            <h2 className="text-h2 xs:max-lg:text-balance mx-auto w-full max-w-[822px]">
-              Built to deliver outcomes, not slide decks.
-            </h2>
-          </div>
-          <div className="mdx:grid-cols-4 grid gap-6 sm:grid-cols-2">
-            {STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="mdx:min-h-[310px] mdx:p-6 flex flex-1 flex-col justify-between gap-y-6 rounded-[10px] bg-white/5 p-5 text-white backdrop-blur-lg"
-              >
-                <div className="bg-white/50 size-2 rounded-full max-sm:hidden" />
-                <div className="flex gap-x-2 gap-y-0 max-sm:items-baseline sm:flex-col">
-                  <BigNumber>{stat.number}</BigNumber>
-                  <p className="text-16 text-white/65">{stat.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact */}
-      <section className="container pt-20 pb-20 md:pt-28 md:pb-28">
+      <section className="container pt-10 pb-20 md:pt-16 md:pb-28">
         <div className="grid grid-cols-1 gap-x-10 gap-y-10 overflow-hidden rounded-[10px] bg-[#1A1A1A] p-8 text-white md:grid-cols-2 md:p-16">
           <div>
             <div className="flex items-center gap-x-[9px] pb-3">

@@ -7,7 +7,7 @@ const NAV_COLUMNS: { heading: string; links: { label: string; href: string }[] }
     links: [
       { label: "What we do", href: "/what-we-do" },
       { label: "Who we are", href: "/who-we-are" },
-      { label: "Work", href: "/work" },
+      { label: "Clients", href: "/work" },
     ],
   },
   {

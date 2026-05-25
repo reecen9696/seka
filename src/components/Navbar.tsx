@@ -8,7 +8,7 @@ const SCROLL_THRESHOLD = 24;
 const NAV_LINKS = [
   { label: "What we do", to: "/what-we-do" },
   { label: "Who we are", to: "/who-we-are" },
-  { label: "Work", to: "/work" },
+  { label: "Clients", to: "/work" },
 ];
 
 export function Navbar() {
