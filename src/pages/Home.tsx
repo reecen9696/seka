@@ -1,10 +1,8 @@
 import { Hero } from "../components/Hero";
 import { CompaniesIntro } from "../components/CompaniesIntro";
-import { Features } from "../components/Features";
-import { Industries } from "../components/Industries";
 import { WhoWeAre } from "../components/WhoWeAre";
-import { BuildersSection } from "../components/BuildersSection";
-import { BuildersBento } from "../components/BuildersBento";
+import { ServicePillars } from "../components/ServicePillars";
+import { Industries } from "../components/Industries";
 import { CtaBanner } from "../components/CtaBanner";
 
 export function Home() {
@@ -12,11 +10,9 @@ export function Home() {
     <main>
       <Hero />
       <CompaniesIntro />
-      <Features />
-      <Industries />
       <WhoWeAre />
-      <BuildersSection />
-      <BuildersBento />
+      <ServicePillars />
+      <Industries />
       <CtaBanner />
     </main>
   );

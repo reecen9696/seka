@@ -6,6 +6,7 @@ type Founder = {
   role: string;
   img: string;
   bio: string;
+  tags: string[];
 };
 
 const FOUNDERS: Founder[] = [
@@ -14,12 +15,14 @@ const FOUNDERS: Founder[] = [
     role: "Co-founder",
     img: imgLakshane,
     bio: "Strategy and commercial. Spent his early career at KPMG and Accenture leading federal government advisory, enterprise data infrastructure, and workforce transformation for ASX-listed clients.",
+    tags: ["KPMG", "Accenture", "Strategy", "Enterprise delivery"],
   },
   {
     name: "Reece Nimorakiotakis",
     role: "Co-founder",
     img: imgReece,
     bio: "Engineering and product. A software engineer and serial co-founder with range across enterprise systems, cloud architecture, full-stack product, and AI integration.",
+    tags: ["JLL", "Arcadia Labs", "Full-stack", "AI engineering"],
   },
 ];
 
@@ -59,6 +62,16 @@ export function WhoWeAre() {
                 <h3 className="text-h5">{founder.name}</h3>
                 <p className="text-14 mt-1.5 text-black/60">{founder.role}</p>
                 <p className="text-16 mt-3">{founder.bio}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {founder.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-black/[0.05] px-2.5 py-1 text-[13px] leading-none text-black/55"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
