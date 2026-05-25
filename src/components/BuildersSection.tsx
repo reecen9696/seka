@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import imgLakshane from "../assets/team/lakshane.png";
 import imgReece from "../assets/team/reece.png";
 import imgBianca from "../assets/team/bianca.png";
@@ -84,6 +84,7 @@ function PortraitCard({
 
 export function BuildersSection() {
   const [active, setActive] = useState(0);
+  const prevActive = useRef(0);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -92,9 +93,16 @@ export function BuildersSection() {
     return () => clearInterval(id);
   }, []);
 
+  // Hold the previously rendered index so we can tell, per card, whether its
+  // position wrapped around this step (jumped between the two far edges).
+  const previous = prevActive.current;
+  useEffect(() => {
+    prevActive.current = active;
+  }, [active]);
+
   const N = TEAM.length;
-  const wrappedDelta = (i: number) => {
-    let delta = i - active;
+  const wrappedDelta = (i: number, base: number) => {
+    let delta = i - base;
     if (delta > N / 2) delta -= N;
     if (delta < -N / 2) delta += N;
     return delta;
@@ -123,12 +131,20 @@ export function BuildersSection() {
           style={{ height: CONTAINER_HEIGHT }}
         >
           {TEAM.map((member, i) => {
-            const delta = wrappedDelta(i);
+            const delta = wrappedDelta(i, active);
+            const prevDelta = wrappedDelta(i, previous);
+            // A wrapping card jumps between far edges (e.g. -2 → +3). Skip the
+            // transition so it snaps to its new slot instead of gliding across.
+            const wrapping = Math.abs(delta - prevDelta) > 1;
             const { scale, opacity, z } = styleFor(delta);
             return (
               <div
                 key={i}
-                className="absolute top-1/2 left-1/2 transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+                className={`absolute top-1/2 left-1/2 ${
+                  wrapping
+                    ? ""
+                    : "transition-[transform,opacity] duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+                }`}
                 style={{
                   width: CARD_WIDTH,
                   height: CARD_HEIGHT,

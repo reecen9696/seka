@@ -61,9 +61,10 @@ export function BuildersBento() {
               />
             </div>
             <p className="text-16 max-w-[476px] text-white/80 md:pb-2">
-              Great AI and data people are scarce in Australia. We source
-              from deep talent pools across Sri Lanka, Malaysia, and Indonesia
-              and hold every person to the same standard we hold ourselves.
+              Great AI and data people are scarce in Australia. We know how to
+              find them, assess them, and manage them. We source from deep
+              talent pools across South and South-East Asia and hold every
+              person to the same standard we hold ourselves.
             </p>
           </div>
 
@@ -92,7 +93,8 @@ export function BuildersBento() {
 
             <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-[10px] bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
-                AI works best when it fits the business.
+                AI works best when it fits the business, not the other way
+                around.
               </h3>
               <div className="aspect-614/164 order-last">
                 <img
@@ -106,8 +108,7 @@ export function BuildersBento() {
               </div>
               <p className="text-16 max-w-[540px] px-6 pb-6 text-white/80 md:px-8">
                 Off-the-shelf tools solve off-the-shelf problems. Most
-                businesses have specific ones. We scope, build, and ship to
-                the shape of your operations, not the other way around.
+                businesses have specific ones. We build to fit.
               </p>
             </div>
           </div>

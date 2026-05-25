@@ -67,8 +67,8 @@ function FullImage({ src, alt }: { src: string; alt: string }) {
 
 const CARDS: Card[] = [
   {
-    title: "Strategy and roadmap, not another slide deck",
-    body: "We audit your operations, identify where AI creates genuine leverage, and deliver a prioritised roadmap your team can actually execute against. Plan, not PowerPoint.",
+    title: "Strategy and roadmap",
+    body: "We map your operations, identify the highest-leverage AI opportunities, and build a prioritised execution plan grounded in what your business actually needs.",
     stat: "2-4 wk",
     statLabel: "Advisory sprint",
     visual: (
@@ -88,38 +88,26 @@ const CARDS: Card[] = [
     ),
   },
   {
-    title: "Workflow automation, built into your stack",
-    body: "We identify the workflows costing your team the most time, design the automation logic, and implement it across your existing systems without disrupting operations.",
-    stat: "100s",
-    statLabel: "Hours reclaimed",
-    visual: <FullImage src={IMG_AI} alt="Workflow automation" />,
-    mobileVisual: (
-      <div className="aspect-345/220 w-full">
-        <FullImage src={IMG_AI} alt="Workflow automation" />
-      </div>
-    ),
-  },
-  {
-    title: "MVP and product build, end to end",
-    body: "When the answer is a custom tool, not an off-the-shelf product, we scope, build, and deliver it. From brief to working software, with AI and data integration baked in.",
+    title: "Build and deliver",
+    body: "From MVP to full product. Workflow automation, data infrastructure, AI-native tools, scoped, built, and shipped. Not prototyped and abandoned.",
     stat: "Brief",
     statLabel: "To working product",
-    visual: <RivePlaceholder label="Product build animation" />,
+    visual: <FullImage src={IMG_AI} alt="Build and deliver" />,
     mobileVisual: (
       <div className="aspect-345/220 w-full">
-        <RivePlaceholder label="Product build animation" />
+        <FullImage src={IMG_AI} alt="Build and deliver" />
       </div>
     ),
   },
   {
-    title: "Offshore talent, embedded and accountable",
-    body: "Vetted AI, data, and engineering specialists from Sri Lanka, Malaysia, and Indonesia, placed directly into your team. One specialist or an entire function. We handle sourcing, vetting, and management.",
+    title: "Talent and teams",
+    body: "We augment your team with vetted offshore AI, data, and engineering talent from Sri Lanka, Malaysia, and Indonesia. One specialist or an entire function, cost competitive, embedded, and accountable.",
     stat: "3",
     statLabel: "Offshore talent regions",
-    visual: <FullImage src={IMG_SUPPORT} alt="Offshore talent" />,
+    visual: <FullImage src={IMG_SUPPORT} alt="Talent and teams" />,
     mobileVisual: (
       <div className="aspect-345/220 w-full">
-        <FullImage src={IMG_SUPPORT} alt="Offshore talent" />
+        <FullImage src={IMG_SUPPORT} alt="Talent and teams" />
       </div>
     ),
   },

@@ -108,6 +108,21 @@ function DemoForm() {
         <h1 className="text-h4 max-sm:!text-[2rem]">
           Let us talk.
         </h1>
+        <p className="text-16 mt-4 text-black/70">
+          Tell us what you are trying to solve. We will tell you honestly
+          whether we can help, and how. We take a small number of engagements
+          at a time, so if the timing is right, we will move quickly.
+        </p>
+        <p className="text-16 mt-3 text-black/70">
+          <a
+            href="mailto:hello@seka.com.au"
+            className="text-black underline underline-offset-2 transition-opacity hover:opacity-70"
+          >
+            hello@seka.com.au
+          </a>
+          {" · "}Melbourne, Australia · Available nationwide and
+          internationally
+        </p>
         <div className="bg-grey-100 mt-8 flex items-center gap-x-2 rounded-full p-0.5 ring-1 ring-inset ring-black/10">
           {(["companies", "agencies"] as const).map((a) => {
             const active = audience === a;

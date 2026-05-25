@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 const VIDEO_SRC =
   "https://cdn.sanity.io/files/e5ozko3p/production/7fdee7ff1841917f08699c46d73a9d3af6956088.mp4";
@@ -12,13 +12,6 @@ const HERO_OVERLAY =
   "linear-gradient(256.16deg, rgba(0, 0, 0, 0) 0.29%, rgba(0, 0, 0, 0.9) 100%)";
 
 export function Hero() {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Book a consultation:", email);
-  };
-
   return (
     <div
       data-hero="true"
@@ -42,7 +35,7 @@ export function Hero() {
       />
 
       <div className="container flex !w-full items-center">
-        <div className="flex max-w-[478px] flex-col items-start gap-[21px] max-md:max-w-full max-md:items-center">
+        <div className="flex max-w-[478px] flex-col items-start gap-[21px] max-md:max-w-full max-md:items-center md:max-w-[820px]">
           <div className="flex w-full flex-col items-start gap-3 max-md:items-center max-md:gap-2 max-md:text-center">
             <h1
               className="font-heading text-[64px] leading-[100%] -tracking-[1.2px] text-white max-md:text-[48px]"
@@ -50,72 +43,31 @@ export function Hero() {
             >
               AI transformation.
               <br />
-              Strategy, people, execution.
+              Strategy, talent, execution.
             </h1>
             <p
               className="max-w-[480px] text-[18px] leading-[27px] text-white/80 max-md:text-[16px]"
               style={{ textShadow: "0px 4px 4px rgba(0, 0, 0, 0.03)" }}
             >
-              We help businesses of every size move from AI curiosity to
-              operational reality. We build the strategy, assemble the team,
-              and deliver the outcomes.
+              We build AI strategies, embed offshore teams, and deliver
+              systems for construction, trades, manufacturing, and
+              government.
             </p>
           </div>
 
           <div className="flex w-full flex-col items-start gap-3 max-md:items-center">
-            <div className="w-full max-w-[422px] max-md:w-full">
-              <form
-                onSubmit={handleSubmit}
-                className="hidden h-16 w-full items-center rounded-[44px] border border-[rgba(33,33,33,0.1)] bg-white p-2 shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[border-color,box-shadow] duration-200 focus-within:border-white/50 focus-within:ring-4 focus-within:ring-white/15 md:flex"
-              >
-                <input
-                  type="email"
-                  required
-                  placeholder="Your work email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 min-w-0 flex-1 rounded-[10px] bg-transparent px-2 text-[16px] leading-[21px] -tracking-[0.18px] text-[#0C0A08] transition-colors duration-200 placeholder:text-[rgba(26,26,26,0.5)] focus:outline-hidden"
-                />
-                <button
-                  type="submit"
-                  className="h-12 shrink-0 cursor-pointer rounded-[32px] bg-[#1A1A1A] px-7 text-[16px] leading-[15px] text-white shadow-[inset_0_0_0_1px_#1A1A1A] transition-colors duration-200 hover:bg-[#1A1A1A]/90"
-                >
-                  Book
-                </button>
-              </form>
-
-              <form
-                onSubmit={handleSubmit}
-                className="flex w-full flex-col gap-3 md:hidden"
-              >
-                <div className="flex h-[51px] w-full items-center rounded-[44px] border border-[rgba(33,33,33,0.1)] bg-white p-2 shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[border-color,box-shadow] duration-200 focus-within:border-white/50 focus-within:ring-4 focus-within:ring-white/15">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Your work email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-full min-w-0 flex-1 rounded-[10px] bg-transparent px-2 text-[16px] leading-[21px] -tracking-[0.18px] text-[#0C0A08] transition-colors duration-200 placeholder:text-[rgba(26,26,26,0.5)] focus:outline-hidden"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[32px] bg-[#1A1A1A] text-[16px] leading-[15px] text-white shadow-[inset_0_0_0_1px_#1A1A1A] transition-colors duration-200 hover:bg-[#1A1A1A]/90"
-                >
-                  Book
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 12H19M19 12L13 6M19 12L13 18"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      opacity="0.6"
-                    />
-                  </svg>
-                </button>
-              </form>
-            </div>
+            <Link to="/get-a-demo" className="inline-flex max-md:w-full">
+              <span className="group relative inline-flex h-12 w-auto cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-7 text-[16px] font-medium leading-none text-[#1A1A1A] shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/90 max-md:w-full">
+                <span className="relative">
+                  <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
+                    Start a conversation
+                  </span>
+                  <span className="absolute inset-0 flex translate-y-[200%] items-center justify-center transition-transform duration-300 group-hover:translate-y-0">
+                    Start a conversation
+                  </span>
+                </span>
+              </span>
+            </Link>
           </div>
         </div>
       </div>

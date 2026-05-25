@@ -29,10 +29,10 @@ export function CtaBanner() {
               <span className="text-nav-link group relative inline-flex w-auto items-center justify-center gap-x-2 overflow-hidden whitespace-nowrap rounded-full bg-black px-4 py-[0.78125rem] text-white ring-1 ring-inset ring-black transition-colors duration-200 hover:bg-black/80">
                 <span className="relative">
                   <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
-                    Book a consultation
+                    Start a conversation
                   </span>
                   <span className="absolute inset-0 flex translate-y-[200%] items-center justify-center transition-transform duration-300 group-hover:translate-y-0">
-                    Book a consultation
+                    Start a conversation
                   </span>
                 </span>
               </span>

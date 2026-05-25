@@ -73,10 +73,10 @@ export function Navbar() {
               >
                 <span className="relative">
                   <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
-                    Book a consultation
+                    Start a conversation
                   </span>
                   <span className="absolute inset-0 flex translate-y-[200%] items-center justify-center transition-transform duration-300 group-hover:translate-y-0">
-                    Book a consultation
+                    Start a conversation
                   </span>
                 </span>
               </span>
