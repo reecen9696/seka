@@ -85,6 +85,21 @@
   }
 }
 
+@utility text-20 {
+  font-size: 20px;
+  line-height: 30px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@utility text-20-medium {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
 @utility text-h4 {
   font-family: var(--font-heading);
   font-size: 40px;

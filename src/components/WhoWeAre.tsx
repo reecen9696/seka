@@ -28,17 +28,17 @@ const FOUNDERS: Founder[] = [
 
 export function WhoWeAre() {
   return (
-    <section className="overflow-clip bg-[#F6F8F6] pt-10 pb-12 text-black md:pt-24 md:pb-[120px]">
+    <section className="overflow-clip bg-[#1A1A1A] py-12 text-white md:py-[82px]">
       <div className="container">
         <div className="mdx:mx-auto mdx:justify-center flex w-full flex-col justify-center gap-y-4 text-center">
           <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">
             <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-            <h6 className="text-eyebrow">Who we are</h6>
+            <h6 className="text-eyebrow text-white/70">Who we are</h6>
           </div>
-          <h2 className="text-h2 xs:max-lg:text-pretty mx-auto w-full max-w-[840px]">
+          <h2 className="text-h2 xs:max-lg:text-balance mx-auto w-full max-w-[840px] text-white">
             Strategy and engineering, in the same room.
           </h2>
-          <p className="text-18 xs:max-lg:text-pretty mdx:mx-auto mx-auto w-full max-w-[680px] text-black/70">
+          <p className="text-18 xs:max-lg:text-pretty mdx:mx-auto mx-auto w-full max-w-[680px] text-white/70">
             The businesses that get the most from AI are not the ones with the
             biggest budgets. They are the ones with the right people executing
             the right things in the right order. Most consultancies sell
@@ -50,7 +50,7 @@ export function WhoWeAre() {
         <div className="mdx:mt-20 mx-auto mt-12 flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-center md:gap-8">
           {FOUNDERS.map((founder) => (
             <div key={founder.name} className="flex w-[342px] max-w-full flex-col">
-              <div className="bg-grey-100 ring-black/8 aspect-[342/392] w-full overflow-hidden rounded-[14px] ring-1 ring-inset">
+              <div className="bg-white/5 ring-white/10 aspect-[342/392] w-full overflow-hidden rounded-[14px] ring-1 ring-inset">
                 <img
                   src={founder.img}
                   alt={founder.name}
@@ -59,14 +59,14 @@ export function WhoWeAre() {
                 />
               </div>
               <div className="mt-5">
-                <h3 className="text-h5">{founder.name}</h3>
-                <p className="text-14 mt-1.5 text-black/60">{founder.role}</p>
-                <p className="text-16 mt-3">{founder.bio}</p>
+                <h3 className="text-h5 text-white">{founder.name}</h3>
+                <p className="text-14 mt-1.5 text-white/60">{founder.role}</p>
+                <p className="text-16 mt-3 text-white/80">{founder.bio}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {founder.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-black/[0.05] px-2.5 py-1 text-[13px] leading-none text-black/55"
+                      className="rounded-full bg-white/10 px-2.5 py-1 text-[13px] leading-none text-white/60"
                     >
                       {tag}
                     </span>

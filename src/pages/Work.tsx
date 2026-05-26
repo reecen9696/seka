@@ -1,9 +1,39 @@
-import { CtaLink } from "../components/CtaLink";
+import { PageHero } from "../components/PageHero";
+import { LogoGrid } from "../components/LogoGrid";
 import imgPropia from "../assets/work/propia.png";
 import imgBega from "../assets/work/bega.png";
+import logoPropia from "../assets/logos/propia-white.svg";
+import logoBega from "../assets/logos/bega-white.svg";
 
 const IMG_PROPIA = imgPropia;
 const IMG_AGRI = imgBega;
+
+type Testimonial = {
+  client: string;
+  logo: string;
+  logoClass: string;
+  quote: string;
+  attribution: string;
+};
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    client: "Propia",
+    logo: logoPropia,
+    logoClass: "h-[24px]",
+    quote:
+      "Seka took us from an idea to a working AI-native platform. They owned the architecture, the data, and the product, and shipped exactly what they scoped.",
+    attribution: "Propia — AI-native property decision platform",
+  },
+  {
+    client: "Bega",
+    logo: logoBega,
+    logoClass: "h-[40px]",
+    quote:
+      "They understood our operational complexity from day one. The data tooling Seka is building genuinely changes how our teams work.",
+    attribution: "Bega — Agriculture & food manufacturing",
+  },
+];
 
 type Project = {
   tag: string;
@@ -77,19 +107,34 @@ export function Work() {
   return (
     <main>
       {/* Intro */}
-      <section className="overflow-clip bg-[#F6F8F6] pt-[100px] pb-12 text-black md:pt-[140px] md:pb-20">
-        <div className="container">
-          <div className="mdx:mx-auto flex w-full flex-col items-center justify-center gap-y-6 text-center">
-            <h1 className="text-h1 xs:max-lg:text-balance mx-auto w-full max-w-[823px]">
-              Seka is early. The people behind it are not.
-            </h1>
-            <p className="text-18 xs:max-lg:text-balance mx-auto w-full max-w-[520px] text-black/70">
-              Here is what we have built independently, and what is currently in
-              progress.
-            </p>
-            <div className="flex items-center justify-center gap-x-2.5 pt-1 md:gap-x-3">
-              <CtaLink to="/get-a-demo" label="Start a conversation" />
-            </div>
+      <PageHero
+        title="Seka is early. The people behind it are not."
+        subtitle="Here is what we have built independently, and what is currently in progress."
+      />
+
+      {/* Companies + quotes */}
+      <section className="overflow-clip bg-[#F6F8F6] pb-12 text-black md:pb-20">
+        <LogoGrid />
+        <div className="container mt-12 md:mt-20">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.client}
+                className="ring-white/10 flex flex-col justify-between gap-y-12 overflow-hidden rounded-[10px] bg-[#1A1A1A] p-8 text-white ring-1 ring-inset max-md:min-h-[320px] md:min-h-[500px] md:p-10"
+              >
+                <img
+                  src={t.logo}
+                  alt={t.client}
+                  className={`${t.logoClass} w-auto self-start`}
+                />
+                <div>
+                  <p className="font-heading text-[1.5rem] font-light leading-[1.3] text-white md:text-[1.75rem]">
+                    “{t.quote}”
+                  </p>
+                  <p className="text-14 mt-6 text-white/55">{t.attribution}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -105,52 +150,6 @@ export function Work() {
             complete, this page will be updated with outcomes, metrics, and
             named references where clients have given permission.
           </p>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="container pt-10 pb-20 md:pt-16 md:pb-28">
-        <div className="grid grid-cols-1 gap-x-10 gap-y-10 overflow-hidden rounded-[10px] bg-[#1A1A1A] p-8 text-white md:grid-cols-2 md:p-16">
-          <div>
-            <div className="flex items-center gap-x-[9px] pb-3">
-              <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-              <h6 className="text-eyebrow">Contact</h6>
-            </div>
-            <h2 className="text-h2 text-white">Let us talk.</h2>
-            <div className="mt-5 flex max-w-[460px] flex-col gap-y-4">
-              <p className="text-18 text-white/70">
-                If you are serious about AI transformation, not the slide deck
-                version but the kind that changes how your business operates, we
-                would like to hear from you.
-              </p>
-              <p className="text-18 text-white/70">
-                We take a small number of engagements at a time. If the timing
-                is right, we will move quickly.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-y-7 md:items-start">
-            <div>
-              <h3 className="text-h5 text-white">Start with a conversation</h3>
-              <p className="text-16 mt-3 max-w-[420px] text-white/70">
-                Tell us what you are trying to solve. We will tell you honestly
-                whether we can help, and how.
-              </p>
-            </div>
-            <CtaLink to="/get-a-demo" label="Book a call" variant="light" />
-            <div className="flex flex-col gap-y-1.5">
-              <a
-                href="mailto:hello@seka.com.au"
-                className="text-18 text-white underline underline-offset-2 transition-opacity hover:opacity-70"
-              >
-                hello@seka.com.au
-              </a>
-              <p className="text-14 text-white/55">
-                Melbourne, Australia · Available nationwide and internationally
-              </p>
-            </div>
-          </div>
         </div>
       </section>
     </main>

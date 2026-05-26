@@ -5,7 +5,7 @@ const CTA_BG =
 
 export function CtaBanner() {
   return (
-    <section className="container pt-[164px]">
+    <section className="container pt-12 md:pt-[82px]">
       <div className="xl:aspect-1248/520 relative min-h-[470px] overflow-hidden rounded-[10px] md:min-h-[520px]">
         <div className="absolute inset-0">
           <img
