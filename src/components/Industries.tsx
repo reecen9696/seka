@@ -67,15 +67,6 @@ const INDUSTRIES: Industry[] = [
     ),
   },
   {
-    name: "Energy and resources",
-    body: "Apply data and machine learning across complex assets, operations, maintenance, and reporting.",
-    icon: (
-      <svg {...svgProps}>
-        <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z" />
-      </svg>
-    ),
-  },
-  {
     name: "Finance and insurance",
     body: "Automate document processing, risk, and compliance workflows with accuracy you can audit.",
     icon: (
