@@ -1,5 +1,6 @@
 import { PageHero } from "../components/PageHero";
 import { LogoGrid } from "../components/LogoGrid";
+import { Eyebrow } from "../design-system/primitives/Eyebrow";
 import imgPropia from "../assets/work/propia.png";
 import imgBega from "../assets/work/bega.png";
 import logoPropia from "../assets/logos/propia-white.svg";
@@ -68,27 +69,27 @@ const PROJECTS: Project[] = [
 
 function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
   return (
-    <div className="grid grid-cols-1 gap-5 overflow-hidden rounded-lg bg-ink text-white md:grid-cols-2 max-md:p-2.5">
+    <div className="grid grid-cols-1 overflow-hidden rounded-lg bg-ink text-white md:grid-cols-2">
       <div
-        className={`flex flex-col justify-between gap-y-10 p-4 md:p-12 ${
+        className={`flex flex-col justify-center gap-y-6 p-7 md:p-12 ${
           reverse ? "md:order-2" : ""
         }`}
       >
         <div>
-          <p className="text-14-medium text-white/50">{project.tag}</p>
-          <h2 className="text-h4 mt-3 text-white">{project.title}</h2>
-          <p className="text-18 mt-1.5 text-white/60">{project.subtitle}</p>
-          <div className="mt-6 flex flex-col gap-y-4">
-            {project.paragraphs.map((paragraph, i) => (
-              <p key={i} className="text-16 text-white/70">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <Eyebrow tone="light">{project.tag}</Eyebrow>
+          <h3 className="text-h3 mt-5 text-white">{project.title}</h3>
+          <p className="text-18 mt-2 text-white/55">{project.subtitle}</p>
+        </div>
+        <div className="flex flex-col gap-y-4">
+          {project.paragraphs.map((paragraph, i) => (
+            <p key={i} className="text-16 text-white/70">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
       <div
-        className={`relative min-h-[260px] overflow-hidden rounded-lg md:min-h-[420px] ${
+        className={`relative min-h-[300px] md:min-h-[480px] ${
           reverse ? "md:order-1" : ""
         }`}
       >
@@ -145,11 +146,6 @@ export function Work() {
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.title} project={project} reverse={i % 2 === 1} />
           ))}
-          <p className="text-14 mx-auto mt-6 max-w-[680px] text-center text-black/45">
-            Additional case studies in development. As client engagements
-            complete, this page will be updated with outcomes, metrics, and
-            named references where clients have given permission.
-          </p>
         </div>
       </section>
     </main>
