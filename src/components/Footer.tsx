@@ -63,7 +63,7 @@ function ColumnGroup({
 
 export function Footer() {
   return (
-    <footer className="bg-[#F6F8F6] pt-20 pb-16 text-black md:pt-28">
+    <footer className="bg-surface pt-20 pb-16 text-black md:pt-28">
       <div className="container space-y-20 md:space-y-[144px]">
         <div className="flex justify-between gap-x-10 gap-y-8 max-lg:flex-col">
           <div className="flex flex-col gap-y-4">

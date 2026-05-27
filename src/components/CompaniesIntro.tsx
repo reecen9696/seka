@@ -1,6 +1,6 @@
 export function CompaniesIntro() {
   return (
-    <section className="overflow-clip bg-[#F6F8F6] pt-24 pb-12 text-black md:pt-[164px] md:pb-[82px]">
+    <section className="overflow-clip bg-surface py-16 text-black md:py-24">
       <div className="container">
         <div className="container mdx:mx-auto mdx:justify-center mdx:text-center flex w-full flex-col justify-center gap-y-4 text-center">
           <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">

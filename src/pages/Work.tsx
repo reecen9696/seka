@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
 
 function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
   return (
-    <div className="grid grid-cols-1 gap-5 overflow-hidden rounded-[10px] bg-[#1A1A1A] text-white md:grid-cols-2 max-md:p-2.5">
+    <div className="grid grid-cols-1 gap-5 overflow-hidden rounded-lg bg-ink text-white md:grid-cols-2 max-md:p-2.5">
       <div
         className={`flex flex-col justify-between gap-y-10 p-4 md:p-12 ${
           reverse ? "md:order-2" : ""
@@ -88,7 +88,7 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
         </div>
       </div>
       <div
-        className={`relative min-h-[260px] overflow-hidden rounded-[10px] md:min-h-[420px] ${
+        className={`relative min-h-[260px] overflow-hidden rounded-lg md:min-h-[420px] ${
           reverse ? "md:order-1" : ""
         }`}
       >
@@ -113,14 +113,14 @@ export function Work() {
       />
 
       {/* Companies + quotes */}
-      <section className="overflow-clip bg-[#F6F8F6] pb-12 text-black md:pb-20">
+      <section className="overflow-clip bg-surface py-16 text-black md:py-24">
         <LogoGrid />
         <div className="container mt-12 md:mt-20">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {TESTIMONIALS.map((t) => (
               <div
                 key={t.client}
-                className="ring-white/10 flex flex-col justify-between gap-y-12 overflow-hidden rounded-[10px] bg-[#1A1A1A] p-8 text-white ring-1 ring-inset max-md:min-h-[320px] md:min-h-[500px] md:p-10"
+                className="ring-white/10 flex flex-col justify-between gap-y-12 overflow-hidden rounded-lg bg-ink p-8 text-white ring-1 ring-inset max-md:min-h-[320px] md:min-h-[500px] md:p-10"
               >
                 <img
                   src={t.logo}
@@ -140,7 +140,7 @@ export function Work() {
       </section>
 
       {/* Projects */}
-      <section className="overflow-clip bg-[#F6F8F6] pb-10 text-black md:pb-20">
+      <section className="overflow-clip bg-surface py-16 text-black md:py-24">
         <div className="container flex flex-col gap-y-6">
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.title} project={project} reverse={i % 2 === 1} />

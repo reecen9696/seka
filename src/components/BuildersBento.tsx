@@ -11,12 +11,12 @@ const IMG_FOLLOWUPS =
 
 export function BuildersBento() {
   return (
-    <section className="overflow-clip bg-[#1A1A1A] pt-8 pb-12 text-white md:pt-20 md:pb-[144px]">
+    <section className="overflow-clip bg-ink pt-8 pb-16 text-white md:pt-16 md:pb-24">
       <div className="container">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Card 1 - full-width: AI to supercharge placements */}
           <div className="md:col-span-2">
-            <div className="grid grid-cols-1 gap-5 rounded-[10px] bg-white/5 md:grid-cols-2 max-md:p-2.5">
+            <div className="grid grid-cols-1 gap-5 rounded-lg bg-white/5 md:grid-cols-2 max-md:p-2.5">
               <div className="flex max-w-[430px] flex-col justify-end p-3.5 md:px-9 md:py-10">
                 <h3 className="text-h5 text-white">
                   Strategy without execution is just cost.
@@ -28,7 +28,7 @@ export function BuildersBento() {
                   we arrived.
                 </p>
               </div>
-              <div className="aspect-[608/447] relative overflow-hidden rounded-[10px]">
+              <div className="aspect-[608/447] relative overflow-hidden rounded-lg">
                 <img
                   src={IMG_AI}
                   alt="AI placements"
@@ -40,7 +40,7 @@ export function BuildersBento() {
           </div>
 
           {/* Card 2 - tall card with bg image */}
-          <div className="relative isolate flex flex-col justify-between gap-y-6 overflow-hidden rounded-[10px] bg-white/5 p-6 md:p-8">
+          <div className="relative isolate flex flex-col justify-between gap-y-6 overflow-hidden rounded-lg bg-white/5 p-6 md:p-8">
             <img
               src={IMG_BD_BG}
               alt=""
@@ -70,7 +70,7 @@ export function BuildersBento() {
 
           {/* Cards 3 + 4 - stacked */}
           <div className="flex flex-col gap-y-5">
-            <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-[10px] bg-white/5 pb-0">
+            <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-lg bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
                 Small teams move faster than big ones.
               </h3>
@@ -91,7 +91,7 @@ export function BuildersBento() {
               </p>
             </div>
 
-            <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-[10px] bg-white/5 pb-0">
+            <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-lg bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
                 AI works best when it fits the business, not the other way
                 around.

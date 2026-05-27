@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { ArrowLink } from "../design-system/primitives/ArrowLink";
+import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
 type Service = {
   number: string;
@@ -98,58 +99,13 @@ const SERVICES: Service[] = [
   },
 ];
 
-function ArrowLink() {
-  return (
-    <Link
-      to="/get-a-demo"
-      className="text-nav-link group flex items-center gap-x-3 text-black"
-    >
-      <span>Get in touch</span>
-      <span className="relative flex size-6 shrink-0 items-center justify-center overflow-hidden rounded-full bg-black text-white">
-        <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-[150%]">
-          <Arrow />
-        </span>
-        <span className="absolute inset-0 flex -translate-x-[150%] items-center justify-center transition-transform duration-300 group-hover:translate-x-0">
-          <Arrow />
-        </span>
-      </span>
-    </Link>
-  );
-}
-
-function Arrow() {
-  return (
-    <svg className="w-[9px]" viewBox="0 0 12 13" fill="none">
-      <path
-        d="M0.75 6.46875H11.25M11.25 6.46875L6 11.7188M11.25 6.46875L6 1.21875"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function ServicesTabs() {
   const [active, setActive] = useState(0);
-  const service = SERVICES[active];
   const total = SERVICES.length;
 
   return (
-    <section className="overflow-clip bg-[#F6F8F6] pb-12 text-black md:pb-24">
-      <div className="container space-y-10 md:space-y-12">
-        {/* Heading */}
-        <div className="mdx:mx-0 mdx:items-start mdx:text-left flex w-full flex-col items-center gap-y-5 text-center">
-          <h2 className="text-h2 xs:max-lg:text-balance">
-            Five services. One accountable team.
-          </h2>
-          <p className="text-18 mdx:mx-0 mx-auto w-full max-w-[612px] text-black/70">
-            Pick the capability you need now, or combine them. Either way, the
-            same team scopes it, builds it, and stands behind it.
-          </p>
-        </div>
-
+    <section className="overflow-clip bg-surface py-16 text-black md:py-32">
+      <div className="container space-y-16 md:space-y-32">
         <div className="relative space-y-12">
           {/* Tabs + progress */}
           <div className="max-xs:flex-col flex items-center justify-between gap-x-5">
@@ -196,7 +152,7 @@ export function ServicesTabs() {
                       className="cursor-pointer py-1"
                     >
                       <span
-                        className={`text-nav-link block rounded-full px-3 py-1.5 transition-colors duration-200 ${
+                        className={`text-button block rounded-full px-3 py-1.5 transition-colors duration-200 ${
                           isActive
                             ? "bg-black text-white"
                             : "text-black/70 hover:text-black"
@@ -224,67 +180,96 @@ export function ServicesTabs() {
             </div>
           </div>
 
-          {/* Panel */}
-          <div className="max-mdx:bg-grey-100 max-mdx:flex-col max-mdx:rounded-[10px] max-mdx:p-2.5 max-mdx:pt-8 flex w-full gap-x-5 gap-y-2.5">
-            {/* Grey content card */}
-            <div className="bg-grey-100 mdx:px-2 mdx:py-2.5 max-sm:flex-col mdx:gap-y-8 flex flex-1 justify-between gap-y-10 rounded-[10px]">
-              <div className="mdx:gap-y-8 md:px-6 md:pt-6 md:pb-2 flex flex-1 flex-col justify-between gap-y-2.5">
-                <div className="mdx:space-y-4 max-mdx:px-3 space-y-2.5 lg:max-w-[260px]">
-                  <p className="text-14-medium text-black/45">{service.number}</p>
-                  <h3 className="text-h4 text-balance">{service.title}</h3>
-                  <div className="max-mdx:hidden">
-                    <ArrowLink />
+          {/* Panel — every tab is rendered into the same grid cell, so the
+              panel's height is fixed to the tallest tab and switching tabs
+              never changes the height or shifts the page. */}
+          <div className="grid">
+            {SERVICES.map((s, i) => {
+              const isActive = i === active;
+              return (
+                <div
+                  key={s.number}
+                  aria-hidden={!isActive}
+                  className={`col-start-1 row-start-1 max-mdx:bg-grey-100 max-mdx:flex-col max-mdx:rounded-lg max-mdx:p-2.5 max-mdx:pt-8 flex w-full gap-x-5 gap-y-2.5 transition-opacity duration-300 ${
+                    isActive
+                      ? "opacity-100"
+                      : "pointer-events-none invisible opacity-0"
+                  }`}
+                >
+                  {/* Grey content card */}
+                  <div className="bg-grey-100 mdx:px-2 mdx:py-2.5 max-sm:flex-col mdx:gap-y-8 flex flex-1 justify-between gap-y-10 rounded-lg">
+                    <div className="mdx:gap-y-8 md:px-6 md:pt-6 md:pb-2 flex flex-1 flex-col justify-between gap-y-2.5">
+                      <div className="mdx:space-y-4 max-mdx:px-3 space-y-2.5 lg:max-w-[260px]">
+                        <p className="text-14-medium text-black/45">{s.number}</p>
+                        <h3 className="text-h4 text-balance">{s.title}</h3>
+                        <div className="max-mdx:hidden">
+                          <ArrowLink to="/get-a-demo" label="Get in touch" />
+                        </div>
+                      </div>
+                      <div className="text-18 max-mdx:px-3 max-md:text-balance text-black/80 lg:max-w-[280px]">
+                        {s.summary}
+                      </div>
+                      <div className="mdx:hidden max-mdx:px-3 max-mdx:pt-2.5">
+                        <ArrowLink to="/get-a-demo" label="Get in touch" />
+                      </div>
+                    </div>
+                    <div className="aspect-325/396 mdx:aspect-[393/480] relative w-full shrink-0 overflow-hidden rounded-lg sm:max-w-[50%] xl:max-w-[393px]">
+                      <img
+                        src={s.img}
+                        alt={s.title}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Black detail card */}
+                  <div className="mdx:max-w-[35%] mdx:gap-y-12 relative flex w-full shrink-0 flex-col justify-between gap-y-10 overflow-hidden rounded-lg bg-black px-6 py-8 text-white md:p-8 lg:max-w-[400px]">
+                    <div>
+                      <p className="text-14-medium text-white/50">
+                        {s.listLabel ?? "Best for"}
+                      </p>
+                      {s.list ? (
+                        <ul className="mt-5 flex flex-col gap-y-3.5">
+                          {s.list.map((item) => (
+                            <li
+                              key={item}
+                              className="text-16 flex gap-x-3 text-white/80"
+                            >
+                              <span className="bg-brand-sky mt-2 size-1.5 shrink-0 rounded-full" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-18 mt-5 text-white/80">{s.bestFor}</p>
+                      )}
+                    </div>
+
+                    {s.list && (
+                      <div>
+                        <p className="text-14-medium text-white/50">Best for</p>
+                        <p className="text-16 mt-1.5 text-white/70">{s.bestFor}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
-                <div className="text-18 max-mdx:px-3 max-md:text-balance text-black/80 lg:max-w-[280px]">
-                  {service.summary}
-                </div>
-                <div className="mdx:hidden max-mdx:px-3 max-mdx:pt-2.5">
-                  <ArrowLink />
-                </div>
-              </div>
-              <div className="aspect-325/396 mdx:aspect-[393/480] relative w-full shrink-0 overflow-hidden rounded-lg sm:max-w-[50%] xl:max-w-[393px]">
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-center"
-                />
-              </div>
-            </div>
-
-            {/* Black detail card */}
-            <div className="mdx:max-w-[35%] mdx:gap-y-12 relative flex w-full shrink-0 flex-col justify-between gap-y-10 overflow-hidden rounded-[10px] bg-black px-6 py-8 text-white md:p-8 lg:max-w-[400px]">
-              <div>
-                <p className="text-14-medium text-white/50">
-                  {service.listLabel ?? "Best for"}
-                </p>
-                {service.list ? (
-                  <ul className="mt-5 flex flex-col gap-y-3.5">
-                    {service.list.map((item) => (
-                      <li
-                        key={item}
-                        className="text-16 flex gap-x-3 text-white/80"
-                      >
-                        <span className="bg-brand-sky mt-2 size-1.5 shrink-0 rounded-full" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-18 mt-5 text-white/80">{service.bestFor}</p>
-                )}
-              </div>
-
-              {service.list && (
-                <div>
-                  <p className="text-14-medium text-white/50">Best for</p>
-                  <p className="text-16 mt-1.5 text-white/70">{service.bestFor}</p>
-                </div>
-              )}
-            </div>
+              );
+            })}
           </div>
         </div>
+
+        {/* Heading — below the tabbed services */}
+        <SectionIntro
+          align="center"
+          eyebrow="Services"
+          title="Five services. One accountable team."
+        >
+          <p>
+            Pick the capability you need now, or combine them. Either way, the
+            same team scopes it, builds it, and stands behind it.
+          </p>
+        </SectionIntro>
       </div>
     </section>
   );

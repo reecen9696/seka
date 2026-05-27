@@ -106,7 +106,7 @@ export function Navbar() {
           <div className="flex items-center gap-x-2.5 max-lg:hidden md:!gap-x-6">
             <Link to="/get-a-demo" className="inline-flex">
               <span
-                className={`text-nav-link group relative inline-flex h-9 w-auto items-center justify-center gap-x-2 overflow-hidden whitespace-nowrap rounded-full px-4 ring-1 ring-inset transition-colors duration-200 ${
+                className={`text-button group relative inline-flex h-9 w-auto items-center justify-center gap-x-2 overflow-hidden whitespace-nowrap rounded-full px-4 ring-1 ring-inset transition-colors duration-200 ${
                   lightChrome
                     ? "bg-black text-white ring-black hover:bg-black/80"
                     : "bg-transparent text-white ring-white/20 backdrop-blur-xs"
@@ -142,7 +142,7 @@ export function Navbar() {
               ))}
               <Link
                 to="/get-a-demo"
-                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-black px-4 py-3 text-nav-link text-white transition-colors duration-200 hover:bg-black/80"
+                className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-black px-4 py-3 text-button text-white transition-colors duration-200 hover:bg-black/80"
               >
                 Start a conversation
               </Link>

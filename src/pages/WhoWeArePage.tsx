@@ -1,6 +1,7 @@
 import { BuildersBento } from "../components/BuildersBento";
 import { CtaBanner } from "../components/CtaBanner";
 import { PageHero } from "../components/PageHero";
+import { SectionIntro } from "../design-system/primitives/SectionIntro";
 import imgLakshane from "../assets/team/lakshane.png";
 import imgReece from "../assets/team/reece.png";
 
@@ -63,7 +64,7 @@ function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }
           <span className="text-eyebrow text-black/40">{founder.role}</span>
           <h2 className="text-h4 mt-2 text-balance">{founder.name}</h2>
         </div>
-        <div className="bg-grey-100 ring-black/8 aspect-[392/450] w-full overflow-hidden rounded-[14px] ring-1 ring-inset">
+        <div className="bg-grey-100 ring-black/8 aspect-[392/450] w-full overflow-hidden rounded-2xl ring-1 ring-inset">
           <img
             src={founder.img}
             alt={founder.name}
@@ -113,7 +114,7 @@ export function WhoWeArePage() {
       />
 
       {/* Founders */}
-      <section className="overflow-clip bg-[#F6F8F6] pb-16 text-black md:pb-28">
+      <section className="overflow-clip bg-surface py-16 text-black md:py-24">
         <div className="container flex flex-col">
           {FOUNDERS.map((founder, i) => (
             <FounderBio key={founder.name} founder={founder} divider={i > 0} />
@@ -122,14 +123,13 @@ export function WhoWeArePage() {
       </section>
 
       {/* What we believe */}
-      <section className="bg-[#1A1A1A] pt-16 text-white md:pt-28">
+      <section className="bg-ink pt-16 text-white md:pt-24">
         <div className="container">
-          <div className="mdx:mx-auto flex w-full flex-col items-center gap-y-4 text-center">
-            <div className="flex items-center gap-x-[9px] pb-1">
-              <h6 className="text-eyebrow">What we believe</h6>
-            </div>
-            <h2 className="text-h2">What we believe.</h2>
-          </div>
+          <SectionIntro
+            tone="light"
+            eyebrow="What we believe"
+            title="What we believe."
+          />
         </div>
       </section>
       <BuildersBento />

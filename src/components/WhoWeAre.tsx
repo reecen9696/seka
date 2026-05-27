@@ -1,3 +1,5 @@
+import { SectionIntro } from "../design-system/primitives/SectionIntro";
+import { Tag } from "../design-system/primitives/Tag";
 import imgLakshane from "../assets/team/lakshane.png";
 import imgReece from "../assets/team/reece.png";
 
@@ -14,49 +16,47 @@ const FOUNDERS: Founder[] = [
     name: "Lakshane Fonseka",
     role: "Co-founder",
     img: imgLakshane,
-    bio: "Strategy and commercial. Spent his early career at KPMG and Accenture leading federal government advisory, enterprise data infrastructure, and workforce transformation for ASX-listed clients.",
+    bio: "Former consultant at KPMG and Accenture across federal government, ASX-listed mining, and energy sector clients. Founder of Uprise Digital, an integrated digital growth agency. Co-built Propia, an AI-native property decision platform.",
     tags: ["KPMG", "Accenture", "Strategy", "Enterprise delivery"],
   },
   {
     name: "Reece Nimorakiotakis",
     role: "Co-founder",
     img: imgReece,
-    bio: "Engineering and product. A software engineer and serial co-founder with range across enterprise systems, cloud architecture, full-stack product, and AI integration.",
+    bio: "Software engineer and serial co-founder. Built production-grade systems at JLL, Arcadia Labs, and Dropbeast across cloud, smart contracts, and full-stack development. Currently building an AI data tool for a major Australian agricultural brand.",
     tags: ["JLL", "Arcadia Labs", "Full-stack", "AI engineering"],
   },
 ];
 
 export function WhoWeAre() {
   return (
-    <section className="overflow-clip bg-[#1A1A1A] py-12 text-white md:py-[82px]">
+    <section className="overflow-clip bg-ink py-16 text-white md:py-32">
       <div className="container">
-        <div className="mdx:mx-auto mdx:justify-center flex w-full flex-col justify-center gap-y-4 text-center">
-          <div className="mdx:justify-center flex items-center justify-center gap-x-[9px] pb-1">
-            <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
-            <h6 className="text-eyebrow text-white/70">Who we are</h6>
-          </div>
-          <h2 className="text-h2 xs:max-lg:text-balance mx-auto w-full max-w-[840px] text-white">
-            Strategy and engineering, in the same room.
-          </h2>
-          <p className="text-18 xs:max-lg:text-pretty mdx:mx-auto mx-auto w-full max-w-[680px] text-white/70">
-            The businesses that get the most from AI are not the ones with the
-            biggest budgets. They are the ones with the right people executing
-            the right things in the right order. Most consultancies sell
-            strategy. Most staffing firms place bodies. Most dev shops build to
-            spec. Seka does all three.
+        <SectionIntro
+          tone="light"
+          align="center"
+          eyebrow="Who we are"
+          title="Founded by operators, not theorists."
+        >
+          <p>
+            Lakshane and Reece have built and shipped AI and data products
+            across enterprise, government, and startup environments.
           </p>
-        </div>
+        </SectionIntro>
 
-        <div className="mdx:mt-20 mx-auto mt-12 flex flex-col items-center gap-12 md:flex-row md:items-start md:justify-center md:gap-8">
+        <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-8">
           {FOUNDERS.map((founder) => (
-            <div key={founder.name} className="flex w-[342px] max-w-full flex-col">
-              <div className="bg-white/5 ring-white/10 aspect-[342/392] w-full overflow-hidden rounded-[14px] ring-1 ring-inset">
-                <img
-                  src={founder.img}
-                  alt={founder.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
+            <div key={founder.name} className="flex flex-col">
+              {/* white outline frame around the portrait only */}
+              <div className="rounded-2xl border border-white/25 p-[22px]">
+                <div className="bg-white/5 aspect-[342/392] w-full overflow-hidden rounded-xl">
+                  <img
+                    src={founder.img}
+                    alt={founder.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
               <div className="mt-5">
                 <h3 className="text-h5 text-white">{founder.name}</h3>
@@ -64,12 +64,9 @@ export function WhoWeAre() {
                 <p className="text-16 mt-3 text-white/80">{founder.bio}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {founder.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-white/10 px-2.5 py-1 text-[13px] leading-none text-white/60"
-                    >
+                    <Tag key={tag} tone="light">
                       {tag}
-                    </span>
+                    </Tag>
                   ))}
                 </div>
               </div>

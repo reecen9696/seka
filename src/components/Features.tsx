@@ -17,7 +17,7 @@ type Card = {
 
 function QuoteCard() {
   return (
-    <div className="bg-grey-100 ring-black/8 relative isolate flex h-full flex-1 flex-col justify-end gap-y-6 overflow-hidden rounded-[10px] p-8 ring-1 ring-inset">
+    <div className="bg-grey-100 ring-black/8 relative isolate flex h-full flex-1 flex-col justify-end gap-y-6 overflow-hidden rounded-lg p-8 ring-1 ring-inset">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -45,7 +45,7 @@ function QuoteCard() {
 
 function FullImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-[10px]">
+    <div className="relative h-full w-full overflow-hidden rounded-lg">
       <img
         src={src}
         alt={alt}
@@ -64,7 +64,7 @@ const CARDS: Card[] = [
     statLabel: "Advisory sprint",
     visual: (
       <div className="flex h-full w-full gap-x-4 lg:gap-x-6">
-        <div className="aspect-352/460 h-full flex-1 overflow-hidden rounded-[10px]">
+        <div className="aspect-352/460 h-full flex-1 overflow-hidden rounded-lg">
           <FullImage src={strategyRoadmap} alt="Strategy and roadmap" />
         </div>
         <div className="flex-1">
@@ -73,7 +73,7 @@ const CARDS: Card[] = [
       </div>
     ),
     mobileVisual: (
-      <div className="aspect-345/451 w-full overflow-hidden rounded-[10px]">
+      <div className="aspect-345/451 w-full overflow-hidden rounded-lg">
         <FullImage src={strategyRoadmap} alt="Strategy and roadmap" />
       </div>
     ),
@@ -168,7 +168,7 @@ export function Features() {
   const activeIndex = rawIndex;
 
   return (
-    <section className="overflow-clip bg-[#F6F8F6] pt-12 pb-12 text-black md:py-[82px]">
+    <section className="overflow-clip bg-surface py-16 text-black md:py-24">
       <div className="container">
         <div className="mdx:h-[400vh]" ref={containerRef}>
           {/* Mobile: stacked */}

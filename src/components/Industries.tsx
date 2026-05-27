@@ -101,7 +101,7 @@ const INDUSTRIES: Industry[] = [
 
 export function Industries() {
   return (
-    <section className="overflow-clip bg-[#F6F8F6] py-12 text-black md:py-[82px]">
+    <section className="overflow-clip bg-surface py-16 text-black md:py-24">
       <div className="container space-y-10 md:space-y-16">
         <div className="flex w-full flex-col gap-y-4 text-left">
           <h2 className="text-h4 xs:max-lg:text-pretty">
@@ -117,7 +117,7 @@ export function Industries() {
           {INDUSTRIES.map((industry) => (
             <div
               key={industry.name}
-              className="bg-grey-100 flex flex-col justify-between gap-y-8 rounded-[10px] p-6 md:min-h-[191px]"
+              className="bg-grey-100 flex flex-col justify-between gap-y-8 rounded-lg p-6 md:min-h-[191px]"
             >
               <dt className="text-black/80">{industry.icon}</dt>
               <dd>

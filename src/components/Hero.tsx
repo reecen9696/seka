@@ -18,7 +18,7 @@ export function Hero() {
       className="relative isolate flex items-center overflow-hidden bg-black"
       style={{ height: HERO_HEIGHT }}
     >
-      <div className="absolute inset-0 -z-10 bg-[#1A1A1A]" />
+      <div className="absolute inset-0 -z-10 bg-ink" />
       <video
         muted
         autoPlay
@@ -57,7 +57,7 @@ export function Hero() {
 
           <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <Link to="/get-a-demo" className="inline-flex max-sm:w-full">
-              <span className="group relative inline-flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-7 text-[16px] font-medium leading-none text-[#1A1A1A] shadow-[0_1px_4px_rgba(12,12,13,0.05)] transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/90 sm:w-auto">
+              <span className="group relative inline-flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-full bg-white px-7 text-[16px] font-medium leading-none text-ink shadow-card transition-[background-color,transform] duration-200 hover:scale-[1.02] hover:bg-white/90 sm:w-auto">
                 <span className="relative">
                   <span className="flex translate-y-0 items-center justify-center transition-transform duration-300 group-hover:-translate-y-[200%]">
                     Start a conversation
@@ -87,7 +87,7 @@ export function Hero() {
       <button
         type="button"
         aria-label="Play video"
-        className="absolute bottom-8 left-8 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[#1A1A1A] shadow-[inset_0_0_0_1px_#1A1A1A] transition-transform hover:scale-110 max-md:bottom-4 max-md:left-4 max-md:h-10 max-md:w-10"
+        className="absolute bottom-8 left-8 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-ink shadow-[inset_0_0_0_1px_#1A1A1A] transition-transform hover:scale-110 max-md:bottom-4 max-md:left-4 max-md:h-10 max-md:w-10"
       >
         <svg
           width="20"
