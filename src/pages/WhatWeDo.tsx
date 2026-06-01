@@ -38,6 +38,7 @@ export function WhatWeDo() {
         <div className="container">
           <SectionIntro
             tone="light"
+            align="center"
             eyebrow="How engagements work"
             title="Three ways to engage."
           />

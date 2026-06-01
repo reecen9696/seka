@@ -20,6 +20,7 @@ export function Home() {
       <section className="overflow-clip bg-surface pt-10 pb-12 text-black md:pt-32 md:pb-[164px]">
         <div className="container">
           <SectionIntro
+            align="center"
             eyebrow="The problem"
             title="Most businesses know they need AI. Almost none know how to use it."
           >
