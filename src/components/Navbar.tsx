@@ -58,23 +58,23 @@ export function Navbar() {
                 className="h-6 w-auto md:h-[26px]"
               />
             </Link>
-
-            <nav className="hidden items-center gap-x-8 lg:flex">
-              {NAV_LINKS.map((link, i) => (
-                <Link
-                  key={`${link.to}-${i}`}
-                  to={link.to}
-                  className={`text-nav-link block cursor-pointer transition-colors duration-300 ${
-                    lightChrome
-                      ? "text-black/80 hover:text-black"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
           </div>
+
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-x-8 lg:flex">
+            {NAV_LINKS.map((link, i) => (
+              <Link
+                key={`${link.to}-${i}`}
+                to={link.to}
+                className={`text-nav-link block cursor-pointer transition-colors duration-300 ${
+                  lightChrome
+                    ? "text-black hover:text-black"
+                    : "text-white hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
           <button
             type="button"

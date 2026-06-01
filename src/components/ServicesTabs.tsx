@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ArrowLink } from "../design-system/primitives/ArrowLink";
-import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
 type Service = {
   number: string;
@@ -258,18 +257,6 @@ export function ServicesTabs() {
             })}
           </div>
         </div>
-
-        {/* Heading — below the tabbed services */}
-        <SectionIntro
-          align="center"
-          eyebrow="Services"
-          title="Five services. One accountable team."
-        >
-          <p>
-            Pick the capability you need now, or combine them. Either way, the
-            same team scopes it, builds it, and stands behind it.
-          </p>
-        </SectionIntro>
       </div>
     </section>
   );

@@ -34,7 +34,6 @@ export function WhoWeAre() {
       <div className="container">
         <SectionIntro
           tone="light"
-          align="center"
           eyebrow="Who we are"
           title="Founded by operators, not theorists."
         >
@@ -44,11 +43,14 @@ export function WhoWeAre() {
           </p>
         </SectionIntro>
 
-        <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-8">
+        <div className="mt-12 flex flex-col gap-12 md:mt-16 md:gap-16">
           {FOUNDERS.map((founder) => (
-            <div key={founder.name} className="flex flex-col">
+            <div
+              key={founder.name}
+              className="flex flex-col gap-6 md:flex-row md:items-start md:gap-12"
+            >
               {/* white outline frame around the portrait only */}
-              <div className="rounded-2xl border border-white/25 p-[22px]">
+              <div className="rounded-2xl border border-white/25 p-[10px] md:w-[210px] md:shrink-0">
                 <div className="bg-white/5 aspect-[342/392] w-full overflow-hidden rounded-xl">
                   <img
                     src={founder.img}
@@ -58,10 +60,10 @@ export function WhoWeAre() {
                   />
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="md:flex-1">
                 <h3 className="text-h5 text-white">{founder.name}</h3>
                 <p className="text-14 mt-1.5 text-white/60">{founder.role}</p>
-                <p className="text-16 mt-3 text-white/80">{founder.bio}</p>
+                <p className="text-18 mt-3 text-white/80">{founder.bio}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {founder.tags.map((tag) => (
                     <Tag key={tag} tone="light">

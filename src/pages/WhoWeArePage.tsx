@@ -58,27 +58,29 @@ function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }
         divider ? "border-black/8 mt-16 border-t pt-16 md:mt-24 md:pt-24" : ""
       }`}
     >
-      {/* Name + portrait */}
-      <div className="mdx:max-w-[392px] flex w-full min-w-0 flex-col gap-y-6">
-        <div>
-          <span className="text-eyebrow text-black/40">{founder.role}</span>
-          <h2 className="text-h4 mt-2 text-balance">{founder.name}</h2>
-        </div>
-        <div className="bg-grey-100 ring-black/8 aspect-[392/450] w-full overflow-hidden rounded-2xl ring-1 ring-inset">
-          <img
-            src={founder.img}
-            alt={founder.name}
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+      {/* Portrait — outlined frame */}
+      <div className="mdx:max-w-[440px] w-full shrink-0">
+        <div className="rounded-2xl border border-black/15 p-[10px]">
+          <div className="bg-grey-100 aspect-[392/450] w-full overflow-hidden rounded-xl">
+            <img
+              src={founder.img}
+              alt={founder.name}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Bio + background */}
-      <div className="mdx:max-w-[520px] w-full min-w-0">
+      {/* Name + bio + background */}
+      <div className="mdx:max-w-[640px] w-full min-w-0">
+        <div className="mb-6">
+          <span className="text-eyebrow text-black/40">{founder.role}</span>
+          <h2 className="text-h4 mt-2 text-balance">{founder.name}</h2>
+        </div>
         <div className="flex flex-col gap-y-4">
           {founder.paragraphs.map((paragraph, i) => (
-            <p key={i} className="text-20 text-black/80">
+            <p key={i} className="text-18 text-black/80">
               {paragraph}
             </p>
           ))}

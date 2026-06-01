@@ -28,12 +28,15 @@ export function SectionIntro({
       className={`flex w-full flex-col gap-y-4 ${light ? "text-white" : "text-ink"} ${centered ? "items-center text-center" : ""} ${className}`}
     >
       {eyebrow && (
-        <Eyebrow tone={tone} className={centered ? "justify-center" : ""}>
+        <Eyebrow
+          tone={tone}
+          className={`[&>h6]:!text-[14px] ${centered ? "justify-center" : ""}`}
+        >
           {eyebrow}
         </Eyebrow>
       )}
       <h2
-        className={`text-h2 text-balance ${centered ? "mx-auto max-w-[800px]" : "max-w-[600px]"}`}
+        className={`text-h2 !text-[44px] text-balance ${centered ? "mx-auto max-w-[800px]" : "max-w-[700px]"}`}
       >
         {title}
       </h2>

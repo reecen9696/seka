@@ -21,8 +21,7 @@ export function IndustryTags() {
     <section className="overflow-clip bg-surface-alt py-16 text-black md:py-32">
       <div className="container">
         <SectionIntro
-          align="center"
-          eyebrow="Industries"
+          eyebrow="Industries we've worked with"
           title="Built for businesses serious about change."
         >
           <p>
@@ -30,9 +29,9 @@ export function IndustryTags() {
             building a data function, we meet you where you are.
           </p>
         </SectionIntro>
-        <div className="mt-8 flex flex-wrap justify-center gap-2.5">
+        <div className="mt-8 flex flex-wrap gap-3">
           {INDUSTRIES.map((name) => (
-            <Tag key={name} tone="outline">
+            <Tag key={name} tone="outline" size="lg">
               {name}
             </Tag>
           ))}
