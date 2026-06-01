@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
-const VIDEO_SRC =
-  "https://cdn.sanity.io/files/e5ozko3p/production/7fdee7ff1841917f08699c46d73a9d3af6956088.mp4";
-const POSTER_SRC =
-  "https://cdn.sanity.io/images/e5ozko3p/production/5c1eb28844bf4aa26e97888f112f7713223a72f5-2534x1894.png?auto=format";
+const VIDEO_SRC = "/hero.mp4";
 
 const HERO_HEIGHT =
   "max(520px, calc(100dvh - var(--news-banner-height, 0px) - 190px), min(655px, calc(100dvh - var(--news-banner-height, 0px) - 150px)))";
@@ -25,9 +22,8 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-        poster={POSTER_SRC}
         src={VIDEO_SRC}
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
       />
       <div
         className="absolute inset-0 -z-10"

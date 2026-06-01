@@ -1,6 +1,6 @@
 import { CtaBanner } from "../components/CtaBanner";
 import { PageHero } from "../components/PageHero";
-import { ServicesTabs } from "../components/ServicesTabs";
+import { ServicesScroll } from "../components/ServicesScroll";
 import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
 const ENGAGEMENTS = [
@@ -31,7 +31,7 @@ export function WhatWeDo() {
       />
 
       {/* Services */}
-      <ServicesTabs />
+      <ServicesScroll />
 
       {/* How engagements work — 128px Y padding */}
       <section className="overflow-clip bg-ink py-16 text-white md:py-32">
