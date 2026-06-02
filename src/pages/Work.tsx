@@ -1,13 +1,9 @@
 import { PageHero } from "../components/PageHero";
 import { LogoGrid } from "../components/LogoGrid";
-import { Eyebrow } from "../design-system/primitives/Eyebrow";
-import imgPropia from "../assets/work/propia.png";
-import imgBega from "../assets/work/bega.png";
+import { ProjectCard } from "../components/ProjectCard";
+import { PROJECTS } from "../components/projects-data";
 import logoPropia from "../assets/logos/propia-white.svg";
 import logoBega from "../assets/logos/bega-white.svg";
-
-const IMG_PROPIA = imgPropia;
-const IMG_AGRI = imgBega;
 
 type Testimonial = {
   client: string;
@@ -35,74 +31,6 @@ const TESTIMONIALS: Testimonial[] = [
     attribution: "Bega — Agriculture & food manufacturing",
   },
 ];
-
-type Project = {
-  tag: string;
-  title: string;
-  subtitle: string;
-  paragraphs: string[];
-  img: string;
-};
-
-const PROJECTS: Project[] = [
-  {
-    tag: "Product build · PropTech",
-    title: "Propia",
-    subtitle: "AI-native property decision platform",
-    paragraphs: [
-      "Co-built Propia from the ground up, an AI-powered platform designed to help property buyers and investors make better decisions using data, predictive modelling, and intelligent search. The project covered everything from technical architecture and data pipelines through to product design and deployment.",
-      "Propia is the proof of concept for the kind of end-to-end AI product delivery Seka brings to client engagements, scoped, built, and shipped by the same team that will build yours.",
-    ],
-    img: IMG_PROPIA,
-  },
-  {
-    tag: "Active engagement · Agriculture and food manufacturing",
-    title: "Agricultural AI data tool",
-    subtitle: "Major Australian food brand",
-    paragraphs: [
-      "Currently scoping and building an AI-powered data tool for one of Australia's most recognisable agricultural brands. The project involves complex operational data, supply chain intelligence, and machine learning integration at scale.",
-      "Further detail available on request.",
-    ],
-    img: IMG_AGRI,
-  },
-];
-
-function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
-  return (
-    <div className="grid grid-cols-1 overflow-hidden rounded-lg bg-ink text-white md:grid-cols-2">
-      <div
-        className={`flex flex-col justify-center gap-y-6 p-7 md:p-12 ${
-          reverse ? "md:order-2" : ""
-        }`}
-      >
-        <div>
-          <Eyebrow tone="light">{project.tag}</Eyebrow>
-          <h3 className="text-h3 mt-5 text-white">{project.title}</h3>
-          <p className="text-18 mt-2 text-white/55">{project.subtitle}</p>
-        </div>
-        <div className="flex flex-col gap-y-4">
-          {project.paragraphs.map((paragraph, i) => (
-            <p key={i} className="text-16 text-white/70">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      </div>
-      <div
-        className={`relative min-h-[300px] md:min-h-[480px] ${
-          reverse ? "md:order-1" : ""
-        }`}
-      >
-        <img
-          src={project.img}
-          alt={project.title}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover object-top"
-        />
-      </div>
-    </div>
-  );
-}
 
 export function Work() {
   return (

@@ -3,6 +3,7 @@ import { LogoGrid } from "../components/LogoGrid";
 import { ServicesGrid } from "../components/ServicesGrid";
 import { IndustryTags } from "../components/IndustryTags";
 import { WhoWeAre } from "../components/WhoWeAre";
+import { FeaturedWork } from "../components/FeaturedWork";
 import { CtaBanner } from "../components/CtaBanner";
 import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
@@ -35,6 +36,7 @@ export function Home() {
       </section>
 
       <WhoWeAre />
+      <FeaturedWork />
       <IndustryTags />
       <CtaBanner />
     </main>
