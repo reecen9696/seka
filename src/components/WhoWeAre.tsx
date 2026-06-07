@@ -34,7 +34,6 @@ export function WhoWeAre() {
       <div className="container">
         <SectionIntro
           tone="light"
-          align="center"
           eyebrow="Who we are"
           title="Founded by operators, not theorists."
         >

@@ -30,19 +30,19 @@ export function SectionIntro({
       {eyebrow && (
         <Eyebrow
           tone={tone}
-          className={`[&>h6]:!text-[14px] ${centered ? "justify-center" : ""}`}
+          className={`[&>h6]:!text-[20px] ${centered ? "justify-center" : ""}`}
         >
           {eyebrow}
         </Eyebrow>
       )}
       <h2
-        className={`text-h2 !text-[44px] text-balance ${centered ? "mx-auto max-w-[800px]" : "max-w-[700px]"}`}
+        className={`text-h2 !text-[40px] text-balance ${centered ? "mx-auto max-w-[800px]" : "md:max-w-[66.6667%]"}`}
       >
         {title}
       </h2>
       {children && (
         <div
-          className={`text-18 flex flex-col gap-y-3 ${centered ? "mx-auto max-w-[680px]" : "max-w-[560px]"} ${light ? "text-white/70" : ""}`}
+          className={`text-18 flex flex-col gap-y-3 ${centered ? "mx-auto max-w-[680px]" : "md:max-w-[66.6667%]"} ${light ? "text-white/70" : ""}`}
         >
           {children}
         </div>

@@ -13,7 +13,6 @@ export function FeaturedWork() {
     <section className="overflow-clip bg-surface py-16 text-black md:py-32">
       <div className="container">
         <SectionIntro
-          align="center"
           eyebrow="Selected work"
           title="Proof, not promises."
         >

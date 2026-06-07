@@ -15,7 +15,7 @@ export function Eyebrow({
 }) {
   return (
     <div className={`flex items-center gap-x-[9px] ${className}`}>
-      <div className="bg-brand-sky size-1.5 shrink-0 rounded-full" />
+      <div className="bg-brand-sky size-2 shrink-0 rounded-full" />
       <h6 className={`text-eyebrow ${tone === "light" ? "text-white/70" : ""}`}>
         {children}
       </h6>
