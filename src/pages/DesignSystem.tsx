@@ -24,6 +24,8 @@ import {
 import { Hero } from "../components/Hero";
 import { ProofBar } from "../components/ProofBar";
 import { ServicesGrid } from "../components/ServicesGrid";
+import { CaseStudyCard } from "../components/CaseStudyCard";
+import { PROJECTS } from "../components/projects-data";
 import { IndustryTags } from "../components/IndustryTags";
 import { CompaniesIntro } from "../components/CompaniesIntro";
 import { Features } from "../components/Features";
@@ -55,6 +57,7 @@ const COMPOSITE_SECTIONS = [
   { id: "hero", label: "Hero" },
   { id: "proof-bar", label: "Proof bar" },
   { id: "services-grid", label: "Services grid" },
+  { id: "case-study-card", label: "Case study card" },
   { id: "industry-tags", label: "Industry tags" },
   { id: "companies-intro", label: "Section intro" },
   { id: "features", label: "Scroll section" },
@@ -614,6 +617,21 @@ export function DesignSystem() {
       >
         <div className="container py-8">
           <ServicesGrid />
+        </div>
+      </CompositeShowcase>
+
+      <CompositeShowcase
+        id="case-study-card"
+        name="Case study card"
+        file="components/CaseStudyCard.tsx"
+        description="The /work index card — project media in the shared hairline frame, category Tag, title, teaser, and a read affordance. The whole card links to /work/:slug."
+      >
+        <div className="container py-8">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {PROJECTS.slice(0, 2).map((project) => (
+              <CaseStudyCard key={project.slug} project={project} />
+            ))}
+          </div>
         </div>
       </CompositeShowcase>
 

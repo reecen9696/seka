@@ -1,6 +1,6 @@
 import { PageHero } from "../components/PageHero";
 import { LogoGrid } from "../components/LogoGrid";
-import { ProjectCard } from "../components/ProjectCard";
+import { CaseStudyCard } from "../components/CaseStudyCard";
 import { CtaBanner } from "../components/CtaBanner";
 import { PROJECTS } from "../components/projects-data";
 import { Reveal } from "../design-system/primitives/Reveal";
@@ -54,22 +54,16 @@ export function Work() {
         <div className="container">
           <SectionIntro title="Case studies">
             <p>
-              Three engagements, each one scoped, built, and shipped by the
-              people who will work on yours. Figures are the outcome, not the
-              activity.
+              Every engagement, each one scoped, built, and shipped by the
+              people who will work on yours. Open one for the full story.
             </p>
           </SectionIntro>
 
-          {/* One reveal per case study — they are a screen apart, so each one
-              gets its own entrance as you reach it. */}
-          <div className="mt-12 flex flex-col gap-y-6 md:mt-16">
+          {/* Index cards, two-up — the full write-up lives at /work/:slug */}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2">
             {PROJECTS.map((project, i) => (
-              <Reveal key={project.title}>
-                <ProjectCard
-                  project={project}
-                  index={i + 1}
-                  reverse={i % 2 === 1}
-                />
+              <Reveal key={project.slug} delay={stagger(i, 2)} className="h-full">
+                <CaseStudyCard project={project} />
               </Reveal>
             ))}
           </div>

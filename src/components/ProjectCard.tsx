@@ -13,19 +13,32 @@ export const CARD_FRAME = "rounded-lg border border-black/10 p-2.5";
  * they sit inside a browser chrome, scaled down and anchored to the top, so
  * the crop is obviously deliberate. Photography still runs full-bleed.
  */
-function ProjectMedia({
+export function ProjectMedia({
   project,
+  tone = "dark",
   className = "",
 }: {
   project: Project;
+  /** The card the media sits in — "light" swaps the backdrop and the lift
+   *  under the browser frame, which are tuned for the ink card by default. */
+  tone?: "dark" | "light";
   className?: string;
 }) {
+  const light = tone === "light";
+  // light cards carry no fill of their own — the media sits straight on the
+  // page surface inside the hairline frame
+  const backdrop = light ? "" : "bg-white/5";
+
   if (project.imgType === "quote") {
     return (
       <div
-        className={`flex items-center justify-center bg-white/5 p-8 md:p-12 ${className}`}
+        className={`flex items-center justify-center p-8 md:p-12 ${backdrop} ${className}`}
       >
-        <p className="font-heading max-w-[420px] text-[28px] leading-[1.25] font-light text-balance text-white/90 md:text-[32px]">
+        <p
+          className={`font-heading max-w-[420px] text-[28px] leading-[1.25] font-light text-balance md:text-[32px] ${
+            light ? "text-black/80" : "text-white/90"
+          }`}
+        >
           {project.pullQuote}
         </p>
       </div>
@@ -47,9 +60,13 @@ function ProjectMedia({
 
   return (
     <div
-      className={`relative flex items-center justify-center overflow-hidden bg-white/5 p-5 md:p-8 ${className}`}
+      className={`relative flex items-center justify-center overflow-hidden p-5 md:p-8 ${backdrop} ${className}`}
     >
-      <div className="w-full overflow-hidden rounded-md bg-white shadow-[0_16px_40px_rgba(0,0,0,0.35)]">
+      <div
+        className={`w-full overflow-hidden rounded-md bg-white ${
+          light ? "shadow-card" : "shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
+        }`}
+      >
         {/* browser chrome — reads the screenshot as a product, not a crop */}
         <div className="bg-grey-50 flex h-7 items-center gap-x-1.5 border-b border-black/10 px-3">
           <span className="size-2 rounded-full bg-black/15" />
@@ -74,7 +91,7 @@ function ProjectMedia({
  * the three-across row on the split card, where 32px values wrap and knock the
  * captions out of alignment with each other.
  */
-function MetricBlock({
+export function MetricBlock({
   metric,
   size = "lg",
 }: {
@@ -183,7 +200,7 @@ export function ProjectCard({
           </div>
 
           <div className="flex flex-col gap-y-4">
-            {project.paragraphs.map((paragraph, i) => (
+            {project.sections.flatMap((s) => s.body).map((paragraph, i) => (
               <p key={i} className="text-16 text-white/70">
                 {paragraph}
               </p>

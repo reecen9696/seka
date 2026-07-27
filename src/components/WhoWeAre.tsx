@@ -32,7 +32,7 @@ const FOUNDERS: Founder[] = [
 
 export function WhoWeAre() {
   return (
-    <section className="overflow-clip bg-ink py-16 text-white md:py-32">
+    <section className="overflow-clip bg-ink py-14 text-white md:py-20">
       <div className="container">
         <SectionIntro tone="light" title="Who we are">
           <p>
@@ -44,7 +44,7 @@ export function WhoWeAre() {
         {/* Equal-height framed cards: portrait column + copy column. The grid
             stretches both cards to the tallest, the portrait stretches with the
             card, and the tags are pushed to the bottom so they line up. */}
-        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
+        <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-2">
           {FOUNDERS.map((founder, i) => (
             <Reveal
               as="article"
@@ -53,7 +53,7 @@ export function WhoWeAre() {
               className="h-full rounded-lg border border-white/15 p-2.5"
             >
               <div className="flex h-full flex-col gap-5 sm:flex-row sm:gap-6">
-                <div className="aspect-[3/4] w-full max-w-[220px] shrink-0 overflow-hidden rounded-lg bg-white/5 sm:aspect-auto sm:w-[168px] sm:min-h-[240px] sm:max-w-none lg:w-[190px]">
+                <div className="aspect-[3/4] w-full max-w-[220px] shrink-0 overflow-hidden rounded-lg bg-white/5 sm:aspect-auto sm:w-[150px] sm:min-h-[196px] sm:max-w-none lg:w-[168px]">
                   <img
                     src={founder.img}
                     alt={founder.name}
@@ -62,11 +62,11 @@ export function WhoWeAre() {
                   />
                 </div>
 
-                <div className="flex min-w-0 flex-1 flex-col py-1 pr-1 sm:py-3 sm:pr-3">
+                <div className="flex min-w-0 flex-1 flex-col py-1 pr-1 sm:py-2 sm:pr-2.5">
                   <h3 className="text-h5 text-white">{founder.name}</h3>
-                  <p className="text-14 mt-1.5 text-white/50">{founder.role}</p>
-                  <p className="text-16 mt-4 text-white/70">{founder.bio}</p>
-                  <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                  <p className="text-14 mt-1 text-white/50">{founder.role}</p>
+                  <p className="text-16 mt-3 text-white/70">{founder.bio}</p>
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
                     {founder.tags.map((tag) => (
                       <Tag key={tag} tone="light">
                         {tag}

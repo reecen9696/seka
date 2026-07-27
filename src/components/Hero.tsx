@@ -5,8 +5,14 @@ import { Reveal } from "../design-system/primitives/Reveal";
 
 const VIDEO_SRC = "/hero.mp4";
 
+/**
+ * Near-full-viewport, minus enough to leave the logo strip peeking below the
+ * fold. Tune the two subtractions to change how tall it runs: the first drives
+ * normal viewports, the second only bites on short ones, where the floor and
+ * the 700px cap take over.
+ */
 const HERO_HEIGHT =
-  "max(480px, calc(100dvh - var(--news-banner-height, 0px) - 230px), min(600px, calc(100dvh - var(--news-banner-height, 0px) - 190px)))";
+  "max(520px, calc(100dvh - var(--news-banner-height, 0px) - 175px), min(650px, calc(100dvh - var(--news-banner-height, 0px) - 145px)))";
 
 const HERO_OVERLAY =
   "linear-gradient(256.16deg, rgba(0, 0, 0, 0) 0.29%, rgba(0, 0, 0, 0.9) 100%)";
