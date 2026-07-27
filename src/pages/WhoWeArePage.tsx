@@ -50,54 +50,62 @@ const FOUNDERS: Founder[] = [
   },
 ];
 
+/**
+ * One founder: a compact identity rail beside the long-form bio.
+ *
+ * The rail — portrait, name, role, and the key facts as a definition list —
+ * sticks to the viewport while the prose scrolls past it. That is what lets the
+ * portrait be small: it no longer has to hold up a column on its own, so there
+ * is no dead space under it and you always know whose story you are reading.
+ */
 function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }) {
   return (
     <div
-      className={`flex min-w-0 justify-between gap-x-10 gap-y-8 max-md:flex-col ${
+      className={`flex min-w-0 gap-x-12 gap-y-8 max-md:flex-col lg:gap-x-24 ${
         divider ? "border-black/8 mt-16 border-t pt-16 md:mt-24 md:pt-24" : ""
       }`}
     >
-      {/* Portrait — outlined frame */}
-      <Reveal className="mdx:max-w-[440px] w-full shrink-0">
-        <div className="rounded-2xl border border-black/15 p-[10px]">
-          <div className="bg-grey-100 aspect-[392/450] w-full overflow-hidden rounded-xl">
-            <img
-              src={founder.img}
-              alt={founder.name}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
+      {/* Identity rail — sticky so it stays with the bio it belongs to */}
+      <div className="shrink-0 md:sticky md:top-28 md:self-start md:w-[248px] lg:w-[264px]">
+        <Reveal>
+          <div className="max-w-[248px] rounded-xl border border-black/15 p-2 max-md:mx-auto">
+            <div className="bg-grey-100 aspect-[4/5] w-full overflow-hidden rounded-lg">
+              <img
+                src={founder.img}
+                alt={founder.name}
+                loading="lazy"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
           </div>
-        </div>
-      </Reveal>
 
-      {/* Name + bio + background — follows the portrait in */}
-      <Reveal delay={70} className="mdx:max-w-[640px] w-full min-w-0">
-        <div className="mb-6">
-          <span className="text-eyebrow text-black/40">{founder.role}</span>
-          <h2 className="text-h4 mt-2 text-balance">{founder.name}</h2>
-        </div>
+          <div className="mt-5 max-md:text-center">
+            <h2 className="text-h4 text-balance">{founder.name}</h2>
+            <p className="text-14 mt-1 text-black/45">{founder.role}</p>
+          </div>
+
+          {/* Key facts read as a definition list, not pills — at rail width
+              pills wrap mid-label and lose the label/value pairing */}
+          <dl className="border-black/8 mt-6 flex flex-col gap-y-3 border-t pt-5">
+            {founder.details.map((detail) => (
+              <div key={detail.label}>
+                <dt className="text-12 text-black/40">{detail.label}</dt>
+                <dd className="text-16 font-heading mt-0.5 leading-snug text-black">
+                  {detail.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+
+      {/* The bio itself */}
+      <Reveal delay={70} className="w-full min-w-0 md:max-w-[720px]">
         <div className="flex flex-col gap-y-4">
           {founder.paragraphs.map((paragraph, i) => (
             <p key={i} className="text-18 text-black/80">
               {paragraph}
             </p>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap gap-2.5">
-          {founder.details.map((detail) => (
-            <div
-              key={detail.label}
-              className="bg-grey-100 flex items-center gap-x-2.5 self-start rounded-full px-4 py-1.5"
-            >
-              <div className="size-1.5 shrink-0 rounded-full bg-black/40" />
-              <div className="space-x-1.5">
-                <span className="text-nav-link text-black/40">{detail.label}:</span>
-                <span className="text-16 !font-heading !leading-none text-black">
-                  {detail.value}
-                </span>
-              </div>
-            </div>
           ))}
         </div>
       </Reveal>
@@ -114,8 +122,8 @@ export function WhoWeArePage() {
         subtitle="The businesses that get the most from AI are not the ones with the biggest budgets — they are the ones with the right people executing the right things in the right order."
       />
 
-      {/* Founders */}
-      <section className="overflow-clip bg-surface py-16 text-black md:py-24">
+      {/* Founders — no `overflow-clip` here: it would break the sticky rail */}
+      <section className="bg-surface py-16 text-black md:py-24">
         <div className="container flex flex-col">
           {FOUNDERS.map((founder, i) => (
             <FounderBio key={founder.name} founder={founder} divider={i > 0} />

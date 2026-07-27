@@ -5,6 +5,9 @@ import { Reveal } from "../design-system/primitives/Reveal";
 
 const VIDEO_SRC = "/hero.mp4";
 
+/** Flip back to true to bring back the play button and its lightbox player. */
+const SHOW_PLAY_BUTTON = false;
+
 /**
  * Near-full-viewport, minus enough to leave the logo strip peeking below the
  * fold. Tune the two subtractions to change how tall it runs: the first drives
@@ -119,28 +122,30 @@ export function Hero() {
         </div>
       </div>
 
-      <button
-        type="button"
-        aria-label="Play video"
-        onClick={() => setPlayerOpen(true)}
-        className="absolute bottom-8 left-8 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-ink shadow-[inset_0_0_0_1px_#1A1A1A] transition-transform hover:scale-110 max-md:bottom-4 max-md:left-4 max-md:h-10 max-md:w-10"
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          className="pointer-events-none ml-0.5"
+      {SHOW_PLAY_BUTTON && (
+        <button
+          type="button"
+          aria-label="Play video"
+          onClick={() => setPlayerOpen(true)}
+          className="absolute bottom-8 left-8 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-ink shadow-[inset_0_0_0_1px_#1A1A1A] transition-transform hover:scale-110 max-md:bottom-4 max-md:left-4 max-md:h-10 max-md:w-10"
         >
-          <path
-            d="M6.5 4.5L15.5 10L6.5 15.5V4.5Z"
-            fill="white"
-            stroke="white"
-            strokeWidth="1.3"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            className="pointer-events-none ml-0.5"
+          >
+            <path
+              d="M6.5 4.5L15.5 10L6.5 15.5V4.5Z"
+              fill="white"
+              stroke="white"
+              strokeWidth="1.3"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      )}
 
       {isPlayerOpen &&
         createPortal(

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Tag } from "../design-system/primitives/Tag";
-import { CARD_FRAME, ProjectMedia } from "./ProjectCard";
+import { ProjectMedia } from "./ProjectCard";
 import type { Project } from "./projects-data";
 
 function Arrow() {
@@ -27,7 +27,8 @@ export function CaseStudyCard({ project }: { project: Project }) {
   return (
     <Link
       to={`/work/${project.slug}`}
-      className={`group block h-full transition-colors duration-200 hover:border-black/25 ${CARD_FRAME}`}
+      // the cream panel from the service card: no border, the fill is the card
+      className="bg-grey-100 group block h-full rounded-lg p-2.5"
     >
       <article className="flex h-full flex-col overflow-hidden rounded-lg text-black">
         <ProjectMedia

@@ -59,10 +59,10 @@ export function Work() {
             </p>
           </SectionIntro>
 
-          {/* Index cards, two-up — the full write-up lives at /work/:slug */}
-          <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2">
+          {/* Index cards, three-up — the full write-up lives at /work/:slug */}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((project, i) => (
-              <Reveal key={project.slug} delay={stagger(i, 2)} className="h-full">
+              <Reveal key={project.slug} delay={stagger(i)} className="h-full">
                 <CaseStudyCard project={project} />
               </Reveal>
             ))}

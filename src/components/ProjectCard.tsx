@@ -94,20 +94,26 @@ export function ProjectMedia({
 export function MetricBlock({
   metric,
   size = "lg",
+  tone = "dark",
 }: {
   metric: Metric;
   size?: "sm" | "lg";
+  /** The card it sits in — "light" for the cream cards, "dark" for the ink. */
+  tone?: "dark" | "light";
 }) {
+  const light = tone === "light";
   return (
     <div>
       <div
-        className={`font-heading leading-none font-light tracking-[-0.05rem] text-white ${
+        className={`font-heading leading-none font-light tracking-[-0.05rem] ${
           size === "sm" ? "text-[28px]" : "text-[32px]"
-        }`}
+        } ${light ? "text-black" : "text-white"}`}
       >
         {metric.value}
       </div>
-      <p className="text-14 mt-2 text-white/60">{metric.label}</p>
+      <p className={`text-14 mt-2 ${light ? "text-black/60" : "text-white/60"}`}>
+        {metric.label}
+      </p>
     </div>
   );
 }
@@ -139,9 +145,10 @@ export function ProjectCard({
 
   if (variant === "stacked") {
     return (
-      <div className={`h-full ${CARD_FRAME}`}>
-        <div className="flex h-full flex-col overflow-hidden rounded-lg bg-ink text-white">
-          <div className="relative aspect-[16/10] w-full">
+      // the cream panel from the /work index card: the fill is the card, no border
+      <div className="bg-grey-100 h-full rounded-lg p-2.5">
+        <div className="flex h-full flex-col overflow-hidden rounded-lg text-black">
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
             {project.img ? (
               <img
                 src={project.img}
@@ -152,25 +159,24 @@ export function ProjectCard({
                 }`}
               />
             ) : (
-              <div className="absolute inset-0 flex items-center bg-white/5 p-5 lg:p-6">
-                <p className="font-heading text-[22px] leading-[1.25] font-light text-balance text-white/90">
+              <div className="absolute inset-0 flex items-center bg-black/5 p-5 lg:p-6">
+                <p className="font-heading text-[22px] leading-[1.25] font-light text-balance text-black/80">
                   {project.pullQuote}
                 </p>
               </div>
             )}
           </div>
-          {/* copy panel tucks over the bottom of the image, as in the reference */}
-          <div className="relative z-10 -mt-5 flex flex-1 flex-col bg-ink p-5 lg:p-6">
+          <div className="flex flex-1 flex-col p-4 pt-5 lg:p-5">
             {/* mb keeps a floor under the figure block; mt-auto below still
                 aligns it card to card when a title wraps */}
             <div className="mb-5">
-              <h3 className="text-h5 text-white">{project.title}</h3>
-              <p className="text-14 mt-1 text-white/50">{project.subtitle}</p>
+              <h3 className="text-h5">{project.title}</h3>
+              <p className="text-14 mt-1 text-black/50">{project.subtitle}</p>
             </div>
             {/* figure stacked over its caption: at 3-up width a side-by-side
                 row shreds the caption into four ragged lines */}
             <div className="mt-auto">
-              <MetricBlock metric={headline} />
+              <MetricBlock metric={headline} tone="light" />
             </div>
           </div>
         </div>
