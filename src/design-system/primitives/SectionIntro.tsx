@@ -1,20 +1,22 @@
 import type { ReactNode } from "react";
-import { Eyebrow } from "./Eyebrow";
+import { Reveal } from "./Reveal";
 
 /**
- * The consistent in-page section header: Eyebrow + h2 + optional body, left
- * aligned by default. Replaces the ad-hoc, sometimes-centred section headers
- * that made pages feel different from one another.
+ * The consistent in-page section header, left aligned by default: a short
+ * 40px serif heading ("The problem", "Who we are") with optional body copy
+ * beneath it. No dot, no secondary headline — the label carries the section
+ * and the body explains it.
+ *
+ * Heading and body reveal on scroll one beat apart, so every section on the
+ * site opens the same way without call sites having to ask for it.
  */
 export function SectionIntro({
-  eyebrow,
   title,
   children,
   tone = "dark",
   align = "left",
   className = "",
 }: {
-  eyebrow?: string;
   title: ReactNode;
   children?: ReactNode;
   tone?: "dark" | "light";
@@ -27,25 +29,19 @@ export function SectionIntro({
     <div
       className={`flex w-full flex-col gap-y-4 ${light ? "text-white" : "text-ink"} ${centered ? "items-center text-center" : ""} ${className}`}
     >
-      {eyebrow && (
-        <Eyebrow
-          tone={tone}
-          className={`[&>h6]:!text-[20px] ${centered ? "justify-center" : ""}`}
-        >
-          {eyebrow}
-        </Eyebrow>
-      )}
-      <h2
+      <Reveal
+        as="h2"
         className={`text-h2 !text-[40px] text-balance ${centered ? "mx-auto max-w-[800px]" : "md:max-w-[66.6667%]"}`}
       >
         {title}
-      </h2>
+      </Reveal>
       {children && (
-        <div
+        <Reveal
+          delay={70}
           className={`text-18 flex flex-col gap-y-3 ${centered ? "mx-auto max-w-[680px]" : "md:max-w-[66.6667%]"} ${light ? "text-white/70" : ""}`}
         >
           {children}
-        </div>
+        </Reveal>
       )}
     </div>
   );

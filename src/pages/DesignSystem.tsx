@@ -1,16 +1,26 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   ArrowLink,
   BulletList,
   Button,
   Card,
   Eyebrow,
+  Reveal,
   SectionHeader,
   SectionIntro,
   Stat,
   Tag,
+  stagger,
 } from "../design-system";
-import { colors, fonts, layout, radii, shadows, typography } from "../design-system/tokens";
+import {
+  colors,
+  fonts,
+  layout,
+  motion,
+  radii,
+  shadows,
+  typography,
+} from "../design-system/tokens";
 import { Hero } from "../components/Hero";
 import { ProofBar } from "../components/ProofBar";
 import { ServicesGrid } from "../components/ServicesGrid";
@@ -38,6 +48,7 @@ const PRIMITIVE_SECTIONS = [
   { id: "stats", label: "Stats" },
   { id: "cards", label: "Cards" },
   { id: "radii", label: "Radii & layout" },
+  { id: "motion", label: "Motion" },
 ];
 
 const COMPOSITE_SECTIONS = [
@@ -109,6 +120,36 @@ function Section({
       </div>
       {children}
     </section>
+  );
+}
+
+/**
+ * Reveals only ever run once, so the catalog remounts the demo through a
+ * changing `key` to play it again.
+ */
+function RevealDemo() {
+  const [run, setRun] = useState(0);
+
+  return (
+    <div className="w-full space-y-4">
+      <div key={run} className="grid gap-3 sm:grid-cols-3">
+        {["Fires on entry", "60ms behind", "120ms behind"].map((label, i) => (
+          <Reveal
+            key={label}
+            delay={stagger(i)}
+            className="rounded-lg bg-surface-alt p-5 ring-1 ring-inset ring-black/8"
+          >
+            <p className="text-14-medium text-black">{label}</p>
+            <code className="text-12 font-mono text-black/50">
+              delay {stagger(i)}ms
+            </code>
+          </Reveal>
+        ))}
+      </div>
+      <Button variant="subtle" onClick={() => setRun((n) => n + 1)}>
+        Replay
+      </Button>
+    </div>
   );
 }
 
@@ -327,10 +368,7 @@ export function DesignSystem() {
                 Section intro (left-aligned, default)
               </h3>
               <div className="rounded-lg bg-white p-10 ring-1 ring-inset ring-black/8">
-                <SectionIntro
-                  eyebrow="The problem"
-                  title="Most businesses know they need AI. Almost none know how to use it."
-                >
+                <SectionIntro title="The problem">
                   <p>
                     The gap is not knowledge. It is execution. Seka embeds
                     strategy, talent, and delivery into one engagement.
@@ -505,6 +543,33 @@ export function DesignSystem() {
                   </div>
                 ))}
               </div>
+            </div>
+          </Section>
+
+          {/* Motion */}
+          <Section
+            id="motion"
+            title="Motion"
+            description="One entrance for the whole site: content fades and lifts the first time it reaches the viewport. Wrap it in <Reveal>, stagger siblings with stagger(index, columns), and leave the rest alone — the motion is deliberately quick, runs once, and is disabled under prefers-reduced-motion."
+          >
+            <Spec title="Reveal on scroll" code="<Reveal delay={stagger(i)}>">
+              <RevealDemo />
+            </Spec>
+            <div className="space-y-3 rounded-lg bg-white p-6 ring-1 ring-inset ring-black/8">
+              <p className="text-16 text-black">Motion tokens</p>
+              {motion.map((m) => (
+                <div
+                  key={m.name}
+                  className="border-b border-black/5 pb-2 last:border-0"
+                >
+                  <code className="text-12 font-mono text-black/70">
+                    {m.name}
+                  </code>
+                  <p className="text-12 text-black/50">
+                    {m.value} — {m.usage}
+                  </p>
+                </div>
+              ))}
             </div>
           </Section>
         </div>

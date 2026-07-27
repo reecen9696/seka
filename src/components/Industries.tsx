@@ -1,9 +1,11 @@
 import type { ReactNode } from "react";
+import { Reveal } from "../design-system/primitives/Reveal";
+import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
 type Industry = { name: string; body: string; icon: ReactNode };
 
 const svgProps = {
-  className: "size-6 md:size-8",
+  className: "size-6",
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
@@ -67,6 +69,15 @@ const INDUSTRIES: Industry[] = [
     ),
   },
   {
+    name: "Energy and resources",
+    body: "Make sense of operational and asset data across sites, and put it in front of the people making the call.",
+    icon: (
+      <svg {...svgProps}>
+        <path d="M13 3 5.5 13.5H11l-1 7.5 8-10.5h-5.5z" />
+      </svg>
+    ),
+  },
+  {
     name: "Finance and insurance",
     body: "Automate document processing, risk, and compliance workflows with accuracy you can audit.",
     icon: (
@@ -99,34 +110,45 @@ const INDUSTRIES: Industry[] = [
   },
 ];
 
+/**
+ * Sectors as a seamless hairline grid — icon tile, sector, one line on what we
+ * do there. Nine entries fill the 3-up grid exactly; keep it a multiple of
+ * three when editing, or the last row leaves a hole in the frame.
+ */
 export function Industries() {
   return (
-    <section className="overflow-clip bg-surface py-16 text-black md:py-24">
-      <div className="container space-y-10 md:space-y-16">
-        <div className="flex w-full flex-col gap-y-4 text-left">
-          <h2 className="text-h4 xs:max-lg:text-pretty">
-            Built for businesses that are serious about change.
-          </h2>
-          <p className="text-18 w-full max-w-[560px] text-black/70">
-            Whatever sector you operate in, we bring the strategy, engineering,
-            and talent to make AI work in your context.
+    <section className="overflow-clip bg-surface-alt py-16 text-black md:py-32">
+      <div className="container">
+        <SectionIntro title="Industries we've worked with">
+          <p>
+            From a tradie automating their first workflow to a mid-market firm
+            building a data function, we meet you where you are.
           </p>
-        </div>
+        </SectionIntro>
 
-        <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {/* cells draw their own top/left hairline; the first row and first
+            column drop theirs so nothing doubles up on the outer frame.
+            The frame reveals as one piece — staggering cells would tear the
+            hairlines apart while they travelled. */}
+        <Reveal
+          as="dl"
+          className="bg-surface mt-10 grid grid-cols-1 overflow-hidden rounded-lg border border-black/10 md:mt-14 md:grid-cols-3"
+        >
           {INDUSTRIES.map((industry) => (
             <div
               key={industry.name}
-              className="bg-grey-100 flex flex-col justify-between gap-y-8 rounded-lg p-6 md:min-h-[191px]"
+              className="flex flex-col gap-y-5 border-t border-black/10 p-6 first:border-t-0 md:border-l md:p-8 md:[&:nth-child(-n+3)]:border-t-0 md:[&:nth-child(3n+1)]:border-l-0"
             >
-              <dt className="text-black/80">{industry.icon}</dt>
+              <dt className="bg-surface-alt flex size-14 shrink-0 items-center justify-center rounded-lg text-black/80">
+                {industry.icon}
+              </dt>
               <dd>
                 <h3 className="text-20-medium">{industry.name}</h3>
-                <p className="text-16 mt-1">{industry.body}</p>
+                <p className="text-16 mt-2">{industry.body}</p>
               </dd>
             </div>
           ))}
-        </dl>
+        </Reveal>
       </div>
     </section>
   );

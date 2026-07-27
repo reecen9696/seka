@@ -10,6 +10,8 @@ export { BUTTON_VARIANTS, type ButtonVariant } from "./primitives/buttonStyles";
 export { AnimatedLabel } from "./primitives/AnimatedLabel";
 export { ArrowLink } from "./primitives/ArrowLink";
 export { Eyebrow } from "./primitives/Eyebrow";
+export { Reveal, type RevealProps } from "./primitives/Reveal";
+export { useReveal, stagger, type RevealOptions } from "./primitives/useReveal";
 export { SectionHeader } from "./primitives/SectionHeader";
 export { Section, type SectionTone } from "./primitives/Section";
 export { SectionIntro } from "./primitives/SectionIntro";

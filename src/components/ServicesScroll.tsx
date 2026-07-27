@@ -1,4 +1,6 @@
+import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { SectionIntro } from "../design-system/primitives/SectionIntro";
 import { ServiceCard } from "./ServiceCard";
 import { SERVICES } from "./services-data";
 
@@ -7,8 +9,18 @@ import { SERVICES } from "./services-data";
  * Features section): the section pins while the page scrolls through each
  * service, cross-fading the canonical `ServiceCard`. Falls back to a stacked
  * list of the same cards on mobile.
+ *
+ * Pass `title` (and optional `intro`) for the standard SectionIntro above the
+ * track — it sits outside the pinned area, so it scrolls away normally before
+ * the panel takes over. /what-we-do renders it headless under the page hero.
  */
-export function ServicesScroll() {
+export function ServicesScroll({
+  title,
+  intro,
+}: {
+  title?: ReactNode;
+  intro?: ReactNode;
+} = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -51,6 +63,11 @@ export function ServicesScroll() {
   return (
     <section className="overflow-clip bg-surface py-16 text-black md:py-32">
       <div className="container">
+        {title && (
+          <div className="mb-12 md:mb-16">
+            <SectionIntro title={title}>{intro}</SectionIntro>
+          </div>
+        )}
         <div className="mdx:h-[600vh]" ref={containerRef}>
           {/* Mobile: stacked cards */}
           <div className="mdx:hidden space-y-5">

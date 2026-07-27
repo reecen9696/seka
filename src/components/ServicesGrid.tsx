@@ -1,4 +1,5 @@
 import { ArrowLink } from "../design-system/primitives/ArrowLink";
+import { Reveal } from "../design-system/primitives/Reveal";
 
 type Service = { num: string; title: string; desc: string };
 
@@ -23,10 +24,14 @@ const SERVICES: Service[] = [
 /**
  * The three service pillars as a hairline-separated grid. Hairlines come from
  * the 1px gap over a black/10 background showing through between surface cards.
+ *
+ * The grid reveals as one block rather than cell by cell: the cells are joined
+ * by those 1px gaps, so staggering them would open dark seams in the frame
+ * while they travelled.
  */
 export function ServicesGrid({ className = "" }: { className?: string }) {
   return (
-    <div
+    <Reveal
       className={`grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-black/10 bg-black/10 sm:grid-cols-3 ${className}`}
     >
       {SERVICES.map((s) => (
@@ -39,6 +44,6 @@ export function ServicesGrid({ className = "" }: { className?: string }) {
           <ArrowLink to="/what-we-do" label="Learn more" />
         </div>
       ))}
-    </div>
+    </Reveal>
   );
 }

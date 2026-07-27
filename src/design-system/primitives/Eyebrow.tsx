@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
 
 /**
- * Small label preceded by a brand-sky dot, used above section headings.
+ * Small label preceded by a brand-sky dot, used as a tag on cards.
  * `tone="light"` dims the text for placement on dark surfaces.
+ *
+ * Note: section headings no longer use this — `SectionIntro` renders its own
+ * undotted h2.
  */
 export function Eyebrow({
   children,

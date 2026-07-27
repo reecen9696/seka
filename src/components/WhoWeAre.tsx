@@ -1,3 +1,5 @@
+import { Reveal } from "../design-system/primitives/Reveal";
+import { stagger } from "../design-system/primitives/useReveal";
 import { SectionIntro } from "../design-system/primitives/SectionIntro";
 import { Tag } from "../design-system/primitives/Tag";
 import imgLakshane from "../assets/team/lakshane.png";
@@ -32,47 +34,48 @@ export function WhoWeAre() {
   return (
     <section className="overflow-clip bg-ink py-16 text-white md:py-32">
       <div className="container">
-        <SectionIntro
-          tone="light"
-          eyebrow="Who we are"
-          title="Founded by operators, not theorists."
-        >
+        <SectionIntro tone="light" title="Who we are">
           <p>
             Lakshane and Reece have built and shipped AI and data products
             across enterprise, government, and startup environments.
           </p>
         </SectionIntro>
 
-        <div className="mt-12 flex flex-col gap-12 md:mt-16 md:gap-16">
-          {FOUNDERS.map((founder) => (
-            <div
+        {/* Equal-height framed cards: portrait column + copy column. The grid
+            stretches both cards to the tallest, the portrait stretches with the
+            card, and the tags are pushed to the bottom so they line up. */}
+        <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
+          {FOUNDERS.map((founder, i) => (
+            <Reveal
+              as="article"
               key={founder.name}
-              className="flex flex-col gap-6 md:flex-row md:items-start md:gap-12"
+              delay={stagger(i, 2)}
+              className="h-full rounded-lg border border-white/15 p-2.5"
             >
-              {/* white outline frame around the portrait only */}
-              <div className="rounded-2xl border border-white/25 p-[10px] md:w-[210px] md:shrink-0">
-                <div className="bg-white/5 aspect-[342/392] w-full overflow-hidden rounded-xl">
+              <div className="flex h-full flex-col gap-5 sm:flex-row sm:gap-6">
+                <div className="aspect-[3/4] w-full max-w-[220px] shrink-0 overflow-hidden rounded-lg bg-white/5 sm:aspect-auto sm:w-[168px] sm:min-h-[240px] sm:max-w-none lg:w-[190px]">
                   <img
                     src={founder.img}
                     alt={founder.name}
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
-              </div>
-              <div className="md:flex-1">
-                <h3 className="text-h5 text-white">{founder.name}</h3>
-                <p className="text-14 mt-1.5 text-white/60">{founder.role}</p>
-                <p className="text-18 mt-3 text-white/80">{founder.bio}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {founder.tags.map((tag) => (
-                    <Tag key={tag} tone="light">
-                      {tag}
-                    </Tag>
-                  ))}
+
+                <div className="flex min-w-0 flex-1 flex-col py-1 pr-1 sm:py-3 sm:pr-3">
+                  <h3 className="text-h5 text-white">{founder.name}</h3>
+                  <p className="text-14 mt-1.5 text-white/50">{founder.role}</p>
+                  <p className="text-16 mt-4 text-white/70">{founder.bio}</p>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-6">
+                    {founder.tags.map((tag) => (
+                      <Tag key={tag} tone="light">
+                        {tag}
+                      </Tag>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

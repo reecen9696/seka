@@ -20,10 +20,7 @@ export function IndustryTags() {
   return (
     <section className="overflow-clip bg-surface-alt py-16 text-black md:py-32">
       <div className="container">
-        <SectionIntro
-          eyebrow="Industries we've worked with"
-          title="Built for businesses serious about change."
-        >
+        <SectionIntro title="Industries we've worked with">
           <p>
             From a tradie automating their first workflow to a mid-market firm
             building a data function, we meet you where you are.

@@ -62,6 +62,12 @@
   /* ---------- Shadow ---------- */
   --shadow-card: 0 1px 4px rgba(12, 12, 13, 0.05);
 
+  /* ---------- Motion ---------- */
+  /* Scroll-reveal easing: leaves fast, lands soft. Also available as `ease-reveal`. */
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 420ms;
+  --distance-reveal: 18px;
+
   /* ---------- Breakpoint ---------- */
   --breakpoint-mdx: 768px;
 }
@@ -225,4 +231,40 @@
 
 .logo-marquee-track {
   animation: logo-marquee var(--logo-marquee-duration, 60s) linear infinite;
+}
+
+/* ---------- Scroll reveal ----------
+   Content starts hidden and is released by the shared IntersectionObserver in
+   `design-system/primitives/Reveal` — there is no scroll listener anywhere in
+   the system, so scrolling itself costs nothing.
+
+   Only opacity and transform animate, which keeps every frame on the
+   compositor: no layout, no repaint, no jank. `Reveal` removes the attribute
+   once the transition lands, which also drops `will-change`, so a page full of
+   revealed sections is not holding a page full of compositor layers. */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, var(--distance-reveal)), 0);
+  transition:
+    opacity var(--reveal-duration, var(--duration-reveal)) var(--ease-reveal)
+      var(--reveal-delay, 0ms),
+    transform var(--reveal-duration, var(--duration-reveal)) var(--ease-reveal)
+      var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Same content, no motion — never leave anything hidden behind a disabled
+   animation. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
 }

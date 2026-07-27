@@ -193,6 +193,31 @@ export const shadows: ShadowToken[] = [
   },
 ];
 
+export type MotionToken = { name: string; value: string; usage: string };
+
+export const motion: MotionToken[] = [
+  {
+    name: "--ease-reveal",
+    value: "cubic-bezier(0.22, 1, 0.36, 1)",
+    usage: "Scroll-reveal easing — leaves fast, lands soft (`ease-reveal`)",
+  },
+  {
+    name: "--duration-reveal",
+    value: "420ms",
+    usage: "Default reveal length — quick enough to keep up with a fast scroll",
+  },
+  {
+    name: "--distance-reveal",
+    value: "18px",
+    usage: "How far revealed content lifts into place",
+  },
+  {
+    name: "stagger step",
+    value: "60ms",
+    usage: "Gap between sibling cards in a row (`stagger(index, columns)`)",
+  },
+];
+
 export type LayoutToken = { name: string; value: string; usage: string };
 
 export const layout: LayoutToken[] = [

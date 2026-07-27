@@ -1,7 +1,6 @@
-import { BuildersBento } from "../components/BuildersBento";
 import { CtaBanner } from "../components/CtaBanner";
 import { PageHero } from "../components/PageHero";
-import { SectionIntro } from "../design-system/primitives/SectionIntro";
+import { Reveal } from "../design-system/primitives/Reveal";
 import imgLakshane from "../assets/team/lakshane.png";
 import imgReece from "../assets/team/reece.png";
 
@@ -59,7 +58,7 @@ function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }
       }`}
     >
       {/* Portrait — outlined frame */}
-      <div className="mdx:max-w-[440px] w-full shrink-0">
+      <Reveal className="mdx:max-w-[440px] w-full shrink-0">
         <div className="rounded-2xl border border-black/15 p-[10px]">
           <div className="bg-grey-100 aspect-[392/450] w-full overflow-hidden rounded-xl">
             <img
@@ -70,10 +69,10 @@ function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }
             />
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      {/* Name + bio + background */}
-      <div className="mdx:max-w-[640px] w-full min-w-0">
+      {/* Name + bio + background — follows the portrait in */}
+      <Reveal delay={70} className="mdx:max-w-[640px] w-full min-w-0">
         <div className="mb-6">
           <span className="text-eyebrow text-black/40">{founder.role}</span>
           <h2 className="text-h4 mt-2 text-balance">{founder.name}</h2>
@@ -101,7 +100,7 @@ function FounderBio({ founder, divider }: { founder: Founder; divider: boolean }
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }
@@ -124,17 +123,8 @@ export function WhoWeArePage() {
         </div>
       </section>
 
-      {/* What we believe */}
-      <section className="bg-ink pt-16 text-white md:pt-24">
-        <div className="container">
-          <SectionIntro
-            tone="light"
-            eyebrow="What we believe"
-            title="What we believe."
-          />
-        </div>
-      </section>
-      <BuildersBento />
+      {/* "What we believe" used to sit here — parked in
+          components/WhatWeBelieve.tsx, drop <WhatWeBelieve /> back in to restore. */}
 
       <CtaBanner />
     </main>

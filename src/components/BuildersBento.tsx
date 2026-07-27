@@ -1,3 +1,5 @@
+import { Reveal } from "../design-system/primitives/Reveal";
+
 const IMG_AI =
   "https://cdn.sanity.io/images/e5ozko3p/production/25ad8c18b09dcb1a619b5d4f2dc3cf089f4bf56f-1196x854.jpg?auto=format";
 const IMG_BD_BG =
@@ -15,7 +17,7 @@ export function BuildersBento() {
       <div className="container">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Card 1 - full-width: AI to supercharge placements */}
-          <div className="md:col-span-2">
+          <Reveal className="md:col-span-2">
             <div className="grid grid-cols-1 gap-5 rounded-lg bg-white/5 md:grid-cols-2 max-md:p-2.5">
               <div className="flex max-w-[430px] flex-col justify-end p-3.5 md:px-9 md:py-10">
                 <h3 className="text-h5 text-white">
@@ -37,10 +39,10 @@ export function BuildersBento() {
                 />
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Card 2 - tall card with bg image */}
-          <div className="relative isolate flex flex-col justify-between gap-y-6 overflow-hidden rounded-lg bg-white/5 p-6 md:p-8">
+          <Reveal className="relative isolate flex flex-col justify-between gap-y-6 overflow-hidden rounded-lg bg-white/5 p-6 md:p-8">
             <img
               src={IMG_BD_BG}
               alt=""
@@ -66,10 +68,10 @@ export function BuildersBento() {
               talent pools across South and South-East Asia and hold every
               person to the same standard we hold ourselves.
             </p>
-          </div>
+          </Reveal>
 
           {/* Cards 3 + 4 - stacked */}
-          <div className="flex flex-col gap-y-5">
+          <Reveal delay={70} className="flex flex-col gap-y-5">
             <div className="relative isolate flex flex-1 flex-col justify-between overflow-hidden rounded-lg bg-white/5 pb-0">
               <h3 className="text-h5 mb-3 p-6 pb-0 text-white max-md:text-pretty md:p-8 md:pb-0">
                 Small teams move faster than big ones.
@@ -111,7 +113,7 @@ export function BuildersBento() {
                 businesses have specific ones. We build to fit.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

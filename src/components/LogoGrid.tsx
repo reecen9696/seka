@@ -1,3 +1,5 @@
+import { Reveal } from "../design-system/primitives/Reveal";
+import { stagger } from "../design-system/primitives/useReveal";
 import accenture from "../assets/logos/accenture.svg";
 import shuffle from "../assets/logos/shuffle.svg";
 import jll from "../assets/logos/jll.svg";
@@ -34,8 +36,9 @@ export function LogoGrid() {
   return (
     <div className="container overflow-visible max-md:!px-0">
       <div className="relative mx-auto mt-6 max-w-[1248px] md:mt-8">
-        {/* Mobile: marquee */}
-        <div className="md:hidden">
+        {/* Mobile: marquee — revealed as one strip so the reveal never fights
+            the marquee's own transform */}
+        <Reveal className="md:hidden">
           <div className="overflow-hidden px-4">
             <div
               className="logo-marquee-track flex w-max"
@@ -63,18 +66,20 @@ export function LogoGrid() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Desktop: centered row */}
+        {/* Desktop: centered row — tiles land left to right */}
         <div className="hidden md:block">
           <div className="grid grid-cols-2 items-center gap-4 sm:grid-cols-3 md:grid-cols-6">
-            {LOGOS.map((logo) => (
-              <div
+            {LOGOS.map((logo, i) => (
+              <Reveal
                 key={logo.name}
+                delay={stagger(i, LOGOS.length, 40)}
+                distance={12}
                 className="flex h-[100px] items-center justify-center rounded-lg bg-[rgba(26,26,26,0.05)] p-6"
               >
                 <LogoImg logo={logo} />
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,9 +1,10 @@
 import { Hero } from "../components/Hero";
 import { LogoGrid } from "../components/LogoGrid";
 import { ServicesGrid } from "../components/ServicesGrid";
-import { IndustryTags } from "../components/IndustryTags";
+import { Industries } from "../components/Industries";
 import { WhoWeAre } from "../components/WhoWeAre";
 import { FeaturedWork } from "../components/FeaturedWork";
+import { ServicesScroll } from "../components/ServicesScroll";
 import { CtaBanner } from "../components/CtaBanner";
 import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
@@ -17,13 +18,11 @@ export function Home() {
         <LogoGrid />
       </section>
 
-      {/* The problem + services — 128px above / 164px below (desktop) */}
-      <section className="overflow-clip bg-surface pt-10 pb-12 text-black md:pt-32 md:pb-[164px]">
+      {/* The problem — no bottom padding; Our services follows on the same
+          surface and its own top padding owns the 128px gap */}
+      <section className="overflow-clip bg-surface pt-10 text-black md:pt-32">
         <div className="container">
-          <SectionIntro
-            eyebrow="The problem"
-            title="Most businesses know they need AI. Almost none know how to use it."
-          >
+          <SectionIntro title="The problem">
             <p>
               The gap is not knowledge, it is execution. Seka closes it by
               embedding strategy, talent, and delivery into one accountable
@@ -34,9 +33,22 @@ export function Home() {
         </div>
       </section>
 
+      {/* Our services — the same scroll-pinned panel that runs on /what-we-do,
+          under the home page's own lead-in */}
+      <ServicesScroll
+        title="Our services"
+        intro={
+          <p>
+            Five ways to engage, from a first roadmap through to an embedded
+            delivery team. Whichever you start with, it is scoped, built, and
+            shipped by the same people.
+          </p>
+        }
+      />
+
       <WhoWeAre />
       <FeaturedWork />
-      <IndustryTags />
+      <Industries />
       <CtaBanner />
     </main>
   );

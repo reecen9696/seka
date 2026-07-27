@@ -1,5 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { PageHero } from "../components/PageHero";
+import { Reveal } from "../design-system/primitives/Reveal";
+import { stagger } from "../design-system/primitives/useReveal";
 import { Section } from "../design-system/primitives/Section";
 
 type Audience = "companies" | "investors";
@@ -32,18 +34,23 @@ function WhatToExpect() {
   return (
     <div className="flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-7">
-        {EXPECTATIONS.map((item) => (
-          <div key={item.title} className="flex gap-x-4">
+        {EXPECTATIONS.map((item, i) => (
+          <Reveal
+            key={item.title}
+            delay={stagger(i, EXPECTATIONS.length)}
+            distance={12}
+            className="flex gap-x-4"
+          >
             <span className="bg-brand-sky mt-2.5 size-1.5 shrink-0 rounded-full" />
             <div>
               <h3 className="text-h5">{item.title}</h3>
               <p className="text-16 mt-1 text-black/70">{item.body}</p>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
 
-      <div className="border-t border-black/10 pt-6">
+      <Reveal delay={180} className="border-t border-black/10 pt-6">
         <a
           href="mailto:hello@seka.com.au"
           className="text-18-medium text-black underline underline-offset-2 transition-opacity hover:opacity-70"
@@ -53,7 +60,7 @@ function WhatToExpect() {
         <p className="text-14 mt-2 text-black/55">
           Melbourne, Australia · Available nationwide and internationally
         </p>
-      </div>
+      </Reveal>
     </div>
   );
 }
@@ -67,7 +74,10 @@ function DemoForm() {
   };
 
   return (
-    <div className="bg-grey-100 rounded-lg p-6 ring-1 ring-inset ring-black/8 md:p-8">
+    <Reveal
+      delay={70}
+      className="bg-grey-100 rounded-lg p-6 ring-1 ring-inset ring-black/8 md:p-8"
+    >
       {/* Audience toggle */}
       <div className="flex items-center gap-x-1 rounded-full bg-white p-0.5 ring-1 ring-inset ring-black/10">
         {(["companies", "investors"] as const).map((a) => {
@@ -145,7 +155,7 @@ function DemoForm() {
           Start a conversation
         </button>
       </form>
-    </div>
+    </Reveal>
   );
 }
 

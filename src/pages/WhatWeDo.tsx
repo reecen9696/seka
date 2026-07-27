@@ -1,6 +1,8 @@
 import { CtaBanner } from "../components/CtaBanner";
 import { PageHero } from "../components/PageHero";
 import { ServicesScroll } from "../components/ServicesScroll";
+import { Reveal } from "../design-system/primitives/Reveal";
+import { stagger } from "../design-system/primitives/useReveal";
 import { SectionIntro } from "../design-system/primitives/SectionIntro";
 
 const ENGAGEMENTS = [
@@ -39,13 +41,13 @@ export function WhatWeDo() {
           <SectionIntro
             tone="light"
             align="center"
-            eyebrow="How engagements work"
-            title="Three ways to engage."
+            title="How engagements work"
           />
           <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3">
-          {ENGAGEMENTS.map((engagement) => (
-            <div
+          {ENGAGEMENTS.map((engagement, i) => (
+            <Reveal
               key={engagement.title}
+              delay={stagger(i)}
               className="mdx:min-h-[310px] mdx:p-6 flex flex-col justify-between gap-y-6 rounded-lg bg-white/5 p-5 ring-1 ring-inset ring-white/10 backdrop-blur-lg"
             >
               <div className="bg-white/50 size-2 shrink-0 rounded-full max-sm:hidden" />
@@ -54,7 +56,7 @@ export function WhatWeDo() {
                 <h3 className="text-h4 mt-2 text-white">{engagement.title}</h3>
                 <p className="text-16 mt-3 text-white/70">{engagement.body}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
           </div>
         </div>
